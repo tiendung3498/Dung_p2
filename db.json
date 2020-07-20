@@ -19,5 +19,6 @@
     ],
     "users": [
         { "id": "1", "name": "dung", "email": "dung@gmail.com", "password": "1", "role": "user" }
-    ]
+    ],
+    "carts": []
 }

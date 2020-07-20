@@ -1,0 +1,267 @@
+@import '../mixin/mixin.scss';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+footer {
+    background-color: #313131;
+    margin-top: 10rem;
+    .footer__top {
+        padding: 2rem 0;
+        @include container();
+        display: flex;
+        &--left {
+            color: $beige;
+            width: 50%;
+            display: flex;
+            ul {
+                margin-top: 0.5rem;
+            }
+            li::before {
+                padding-right: 1.1rem;
+            }
+            &--email {
+                margin-left: auto;
+            }
+        }
+        &--right {
+            width: 40%;
+            margin-left: auto;
+            input {
+                width: 90%;
+                height: 40px;
+            }
+            label {
+                position: absolute;
+                background: $green;
+                color: white;
+                line-height: 40px;
+                padding: 0 12px;
+            }
+        }
+    }
+    hr {
+        border: none;
+        border-top: 1px solid $beige;
+    }
+    .footer__content {
+        @include container();
+        display: flex;
+        padding: 3rem 0;
+        &--left {
+            width: 32%;
+            text-align: left;
+            p {
+                display: block;
+                padding: 0.7rem;
+                font-size: 0.8rem;
+                color: $gray;
+            }
+            p::before {
+                color: $green;
+                padding-right: 10px;
+            }
+        }
+        &--right {
+            width: 60%;
+            margin-top: 2rem;
+            margin-left: auto;
+            display: flex;
+            &--item {
+                padding-right: 2rem;
+                text-align: left;
+            }
+            h5 {
+                color: $green;
+            }
+            ul {
+                color: $gray;
+                padding-top: 1.2rem;
+                li {
+                    display: block;
+                    font-weight: 100;
+                    font-size: 12px;
+                    padding: 10px 0;
+                    &::before {
+                        font-weight: bold;
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+    }
+    hr {
+        border: none;
+        border-top: 1px solid $beige;
+    }
+    .footer__bottom {
+        display: flex;
+        padding: 2rem 0;
+        @include container();
+        &--left {
+            ul {
+                display: flex;
+                list-style-type: none;
+                color: $gray;
+                font-size: 13px;
+                li {
+                    padding: 0 10px;
+                }
+            }
+        }
+        &--right {
+            margin-left: auto;
+            ul {
+                padding-right: 2rem;
+                li {
+                    padding: 0 10px;
+                    color: $gray;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    .footer__design {
+        width: 100%;
+        background: #434343;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width:1273px) {
+    footer {
+        .footer__content--left {
+            width: 30%;
+            img {
+                width: 100%;
+            }
+            p {
+                font-size: 0.7em;
+            }
+        }
+        .footer__content--right {
+            width: 67%;
+            &--item {
+                padding-right: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width:1081px) {
+    footer {
+        .footer__content--right {
+            &--item {
+                padding-right: 0.5rem;
+                h5 {
+                    font-size: 10px;
+                }
+                ul {
+                    li {
+                        font-size: 9px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:925px) {
+    footer {
+        .footer__bottom {
+            &--left {
+                ul {
+                    font-size: 11px;
+                }
+            }
+            &--right {
+                ul {
+                    li {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:850px) {
+    footer {
+        .footer__bottom {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:750px) {
+    footer {
+        .footer__top {
+            flex-direction: column;
+            .footer__top--left {
+                flex-direction: column;
+                width: 100%;
+                margin-bottom: 1rem;
+                &--icon {
+                    width: 100%;
+                    margin-bottom: 2rem;
+                    color: $green;
+                }
+                ul {
+                    color: white;
+                }
+                &--email {
+                    width: 100%;
+                    h5 {
+                        display: inline-block;
+                        color: $green;
+                        padding: 0 2px;
+                    }
+                }
+            }
+            .footer__top--right {
+                width: 100%;
+                &-input {
+                    width: 100%;
+                }
+            }
+        }
+        .footer__content {
+            flex-direction: column;
+            .footer__content--left {
+                width: 100%;
+                p {
+                    font-size: 0.8rem;
+                }
+                & p:nth-child(3) {
+                    display: none;
+                }
+                & p:nth-child(4) {
+                    display: none;
+                }
+            }
+            .footer__content--right {
+                width: 100%;
+                flex-direction: column;
+                &--item {
+                    margin-bottom: 1.5rem;
+                    h5 {
+                        font-size: 15px;
+                    }
+                    ul {
+                        li {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        hr {
+            display: none;
+        }
+    }
+}

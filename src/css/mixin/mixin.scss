@@ -1,0 +1,565 @@
+@import '../../css/font.css';
+@import '../components/variable.scss';
+@mixin container() {
+    width: 80%;
+    margin: 0 auto;
+}
+
+@mixin title($cl) {
+    .#{$cl} {
+        @include container();
+        div {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: $beige;
+            a {
+                color: $green;
+                text-decoration: none;
+                min-width: 100px;
+                ;
+            }
+        }
+    }
+}
+
+@mixin title__icon() {
+    h4 {
+        position: absolute;
+        bottom: 0;
+        display: inline-block;
+        padding-bottom: 1rem;
+        color: $green;
+        border-bottom: 3px solid $green;
+    }
+    div {
+        margin-left: auto;
+        padding-bottom: 8px;
+        span {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 1px solid $gray;
+            font-size: 0.5rem;
+            color: $beige;
+            text-align: center;
+            padding-top: 7px;
+            cursor: pointer;
+        }
+    }
+}
+
+@mixin grid__left($cl) {
+    .#{$cl} {
+        &--left {
+            width: 24%;
+            &--category {
+                width: 100%;
+                margin-bottom: 2.5rem;
+                &--title {
+                    margin-bottom: 1.2rem;
+                    h4 {
+                        color: $green;
+                        border-bottom: 3px solid $green;
+                        display: inline-block;
+                        padding-bottom: 1rem;
+                    }
+                    div {
+                        border-bottom: 1px solid $beige;
+                    }
+                }
+                & p {
+                    width: 100%;
+                    border-bottom: 1px solid $gray;
+                    line-height: 2.5rem;
+                    font-weight: normal;
+                    font-size: 0.85rem;
+                    color: $beige;
+                    cursor: pointer;
+                    &:before {
+                        padding-right: 5px;
+                        font-weight: bold;
+                        font-size: 0.6rem;
+                    }
+                    &:nth-child(3) {
+                        color: $green;
+                        font-weight: bold;
+                    }
+                }
+                .color {
+                    display: flex;
+                    flex-wrap: wrap;
+                    & span {
+                        display: block;
+                        position: relative;
+                        font-size: 0.85rem;
+                        color: $beige;
+                        width: 50%;
+                        height: 1.5rem;
+                        padding: 4px 0;
+                        padding-left: 2rem;
+                        margin-bottom: 1.5rem;
+                        &::before {
+                            content: '';
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin grid__right($cl) {
+    &--right {
+        width: 74%;
+        margin-left: auto;
+        padding-left: 2rem;
+        &--top {
+            &--image {
+                width: 100%;
+                background: url("../img/img-1.png");
+                background-size: cover;
+                background-position: 0 260px;
+                height: 10rem;
+            }
+            &--category {
+                width: 100%;
+                display: flex;
+                padding: 2rem 0;
+                &--left {
+                    color: $beige;
+                    padding-top: 0.8rem;
+                    span:nth-child(1) {
+                        color: $green;
+                    }
+                    span:nth-child(2) {
+                        padding-left: 0.7rem;
+                    }
+                }
+                &--right {
+                    margin-left: auto;
+                    span {
+                        margin-right: 1rem;
+                    }
+                    span:nth-child(3) {
+                        margin-left: 2.5rem;
+                    }
+                    div {
+                        display: inline-block;
+                        width: 130px;
+                        height: 40px;
+                        box-sizing: border-box;
+                        border: 1px solid $gray;
+                        color: $beige;
+                        padding: 0.75rem 0 0.75rem 0.5rem;
+                        position: relative;
+                        background-color: white;
+                        input {
+                            display: none;
+                        }
+                        ul {
+                            width: 130px;
+                            position: absolute;
+                            list-style-type: none;
+                            border: 1px solid $gray;
+                            border-top: none;
+                            z-index: 99;
+                            background-color: white;
+                            top: 39px;
+                            left: -1px;
+                            display: none;
+                            li {
+                                padding: 6px 0;
+                                padding-left: 10px;
+                                cursor: pointer;
+                            }
+                        }
+                        input#dropdown1:checked+ul {
+                            display: block;
+                        }
+                        input#dropdown2:checked+ul {
+                            display: block;
+                        }
+                        label {
+                            cursor: pointer;
+                            i {
+                                color: black;
+                                padding-left: 1rem;
+                                padding-top: 1px;
+                                position: absolute;
+                                right: 6px;
+                                top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &--product {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            grid-gap: 2.3rem;
+            &--item {
+                position: relative;
+                border: 1px solid #d9dde0;
+                text-align: center;
+                &--new {
+                    @extend #{$product}--new;
+                }
+                &--image {
+                    @extend #{$product}--image;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                &--title {
+                    @extend #{$product}--title;
+                }
+                span {
+                    color: #febf01;
+                    display: block;
+                    margin-top: 0.6rem;
+                }
+                &--price {
+                    @extend #{$product}--price;
+                    del {
+                        padding-left: 0.7rem;
+                        color: $gray;
+                    }
+                }
+            }
+        }
+        &--bottom {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: flex-end;
+            @include page();
+        }
+    }
+}
+
+@mixin btn__group {
+    .buy {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: $green;
+        width: 150px;
+        height: 45px;
+        box-sizing: border-box;
+        border: 1px solid $green;
+        text-align: center;
+        border-radius: 1.5rem;
+        font-size: 0.85rem;
+        padding-top: 0.85rem;
+    }
+    & a:nth-child(2) {
+        margin: 0 0.75rem;
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        width: 150px;
+        height: 45px;
+        box-sizing: border-box;
+        border: 1px solid $green;
+        text-align: center;
+        border-radius: 1.5rem;
+        font-size: 0.85rem;
+        padding-top: 0.85rem;
+        border-color: $gray;
+        width: 45px;
+        font-size: 0.8rem;
+        padding-top: 1rem;
+    }
+    & a:nth-child(3) {
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        width: 150px;
+        height: 45px;
+        box-sizing: border-box;
+        border: 1px solid $green;
+        text-align: center;
+        border-radius: 1.5rem;
+        font-size: 0.85rem;
+        padding-top: 0.85rem;
+        border-color: $gray;
+        width: 45px;
+        font-size: 0.8rem;
+        padding-top: 1rem;
+    }
+}
+
+@mixin page() {
+    a {
+        height: 2.75rem;
+        display: block;
+        text-decoration: none;
+        color: $beige;
+        font-size: 0.85rem;
+        background-color: white;
+        border: 1px solid $gray;
+        padding: 0.75rem 1rem;
+        margin: 0 6px;
+        cursor: pointer;
+    }
+    a:nth-child(2) {
+        background-color: $green;
+        color: white;
+        border-color: $green;
+    }
+}
+
+@mixin small__nosale($classs) {
+    .#{$classs} {
+        position: relative;
+        border: 1px solid #d9dde0;
+        text-align: center;
+        &--image {
+            width: 100%;
+            height: 65%;
+            position: relative;
+            div {
+                position: absolute;
+                background-color: black;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+            p {
+                position: absolute;
+                top: 45%;
+                left: 23%;
+                z-index: 2;
+                opacity: 0;
+                a {
+                    color: white;
+                    text-decoration: none;
+                    background: $green;
+                    padding: 0.7rem 1rem;
+                    text-align: center;
+                    border-radius: 1rem;
+                    margin-right: 0.5rem;
+                }
+                a.-search {
+                    display: inline-block;
+                    color: black;
+                    background-color: white;
+                    text-align: center;
+                    font-size: 0.85rem;
+                    padding: 1rem 1rem;
+                    border-color: $gray;
+                    margin-right: 0;
+                }
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            &:hover p {
+                transition: 0.5s;
+                opacity: 1;
+            }
+            &:hover div {
+                opacity: 0.3;
+            }
+        }
+        &--title {
+            color: $beige;
+            margin-top: 1.5rem;
+            span {
+                color: #febf01;
+                display: block;
+                margin-top: 0.6rem;
+            }
+        }
+        &--price {
+            margin-top: 0.6rem;
+            color: red;
+            font-weight: bold;
+            del {
+                padding-left: 0.7rem;
+                color: $gray;
+            }
+        }
+    }
+}
+
+@mixin color() {
+    $colors: (#98cb4a: c1, #f76d3c: c2, #913ccd: c3, #5481e6: c4, #f7d842: c5, #f15f74: c6);
+    @each $color,
+    $classs in $colors {
+        .color span.#{$classs}::before {
+            background: $color;
+        }
+    }
+}
+
+@mixin news__left() {
+    &--left {
+        &--hot {
+            margin-bottom: 2rem;
+            &--index {
+                display: flex;
+                margin-top: 1.7rem;
+                img {
+                    width: 75px;
+                    height: 75px;
+                }
+                span {
+                    font-size: 0.85rem;
+                    padding-top: 0.5rem;
+                    padding-left: 0.75rem;
+                }
+            }
+        }
+        &--blog {
+            width: 100%;
+            .active {
+                background-color: $green;
+                color: white;
+                display: inline;
+            }
+            div {
+                padding: 0.75rem 1.5rem;
+                border: 1px solid $gray;
+                display: inline-block;
+                font-size: 0.7rem;
+                color: $beige;
+                margin-right: 0.75rem;
+                margin-bottom: 0.75rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@mixin news__right__same() {
+    &--right {
+        width: 74%;
+        margin-left: auto;
+        &--item {
+            width: 100%;
+            color: $beige;
+            margin-bottom: 3.75rem;
+            &--time {
+                padding: 1.25rem 0;
+                span {
+                    padding-right: 20px;
+                    &::before {
+                        color: $green;
+                        padding-right: 0.5rem;
+                    }
+                }
+            }
+            &--image {
+                width: 100%;
+                height: 400px;
+                margin-bottom: 2rem;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            p {
+                font-size: 0.85rem;
+                line-height: 1.4rem;
+            }
+        }
+        &--bottom {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: flex-end;
+            @include page();
+        }
+    }
+}
+
+@mixin button() {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: $green;
+    width: 150px;
+    height: 45px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 1.5rem;
+    font-size: 0.85rem;
+    padding-top: 0.85rem;
+    margin-top: 2rem;
+}
+
+@mixin flex() {
+    width: 100%;
+    display: flex;
+}
+
+@mixin width90() {
+    width: 90%;
+}
+
+@mixin full() {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin group_a() {
+    width: 35px;
+    height: 35px;
+    padding-top: $size_small;
+}
+
+@mixin relative() {
+    overflow: hidden;
+    position: relative;
+}
+
+@mixin label() {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+@mixin avata() {
+    width: 100%;
+    transform: scale(3.2);
+    position: absolute;
+    top: 28px;
+    left: 14px;
+}
+
+@mixin check() {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d7d7d7;
+    background: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@mixin quantity() {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border: 1px solid $gray;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 14px;
+}
