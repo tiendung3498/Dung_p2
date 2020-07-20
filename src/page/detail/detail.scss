@@ -1,0 +1,305 @@
+@import'../../css/components/header.scss';
+@import '../../css/components/footer.scss';
+@include title('detail__title');
+.detail__content {
+    @include container();
+    margin-top: 3.5rem;
+    &--mainProduct {
+        margin-bottom: 9rem;
+        @include flex();
+        &--left {
+            width: 40%;
+            .img__main {
+                width: 100%;
+            }
+            .img__more {
+                margin-top: 1rem;
+                @include flex();
+                justify-content: space-between;
+                img {
+                    width: 18%;
+                }
+            }
+        }
+        &--right {
+            width: 60%;
+            padding-left: 1rem;
+            text-align: left;
+            h3.name {
+                color: #363533;
+                font-weight: bold;
+            }
+            span.rate {
+                display: block;
+                color: #febf01;
+                font-size: 0.85rem;
+                margin-top: 0.75rem;
+            }
+            h3.price {
+                color: red;
+                font-weight: 400;
+                border-bottom: 1px solid $gray;
+                padding: 1.25rem 0;
+                del {
+                    color: $gray;
+                    font-size: 1rem;
+                    padding-left: 1rem;
+                }
+            }
+            &--detail {
+                font-size: 14px;
+                color: $beige;
+                padding: 1.5rem 0;
+                border-bottom: 1px solid $gray;
+                line-height: 1rem;
+            }
+            &--amount {
+                display: flex;
+                border-bottom: 1px solid $gray;
+                padding: 1.5rem 0 2rem 0;
+                p {
+                    margin-top: 10px;
+                    margin-right: 1.5rem;
+                }
+                .add,
+                .sub {
+                    padding-top: 10px;
+                    cursor: pointer;
+                    width: 2.65rem;
+                    height: 2.65rem;
+                    border: 1px solid $gray;
+                    text-align: center;
+                    padding: 0.75rem 0;
+                }
+                .amount {
+                    width: 5.3rem;
+                    margin: 0 0.5rem;
+                    height: 2.65rem;
+                    border: 1px solid $gray;
+                    text-align: center;
+                    padding: 0.75rem 0;
+                }
+            }
+            &--btn {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                .btn__group {
+                    @include btn__group();
+                }
+            }
+            &--social {
+                i {
+                    background-color: #5577ce;
+                    color: white;
+                    padding: 4px;
+                    border-radius: 3px;
+                    border: 1px solid transparent;
+                }
+                span {
+                    padding: 2px 7px;
+                    color: $beige;
+                    border: 1px solid $beige;
+                    margin-left: 0.5rem;
+                    border-radius: 3px;
+                    position: relative;
+                    &::before {
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        background-color: white;
+                        border-left: 1px solid $beige;
+                        border-top: 1px solid $beige;
+                        transform: rotate(-45deg);
+                        position: absolute;
+                        top: 6.5px;
+                        left: -4px;
+                    }
+                    a.fb {
+                        display: inline-block;
+                        font-size: 0.85rem;
+                        text-decoration: none;
+                    }
+                }
+                a.twitch {
+                    margin: 0 5px;
+                    i {
+                        background: #1b95e0;
+                        &::before {
+                            margin-right: 4px;
+                        }
+                    }
+                }
+                a.gg {
+                    i {
+                        background-color: white;
+                        color: #dd4339;
+                        border-color: $beige;
+                        font-weight: bolder;
+                    }
+                }
+                a.share {
+                    margin-left: 2.25rem;
+                    i {
+                        background-color: #ff6c4b;
+                        font-weight: 100;
+                        &::before {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &--information {
+        width: 100%;
+        margin-bottom: 4.5rem;
+        position: relative;
+        &--tab {
+            display: flex;
+            position: absolute;
+            top: -37px;
+            left: 0;
+            z-index: 2;
+            span {
+                display: block;
+                padding: 0.5rem 5rem;
+                cursor: pointer;
+                &:nth-child(1) {
+                    border-top: 2px solid black;
+                    border-right: 1px solid $gray;
+                    border-left: 1px solid $gray;
+                    border-bottom: 1px solid white;
+                    color: $green;
+                }
+            }
+        }
+        &--content {
+            width: 100%;
+            border: 1px solid $gray;
+            padding: 3.25rem 2.25rem 2.25rem 2.75rem;
+            color: $beige;
+            font-size: 0.8rem;
+            text-align: left;
+            P {
+                margin-bottom: 1.5rem;
+            }
+            span {
+                display: block;
+                line-height: 1.25rem;
+            }
+        }
+    }
+    &--title {
+        position: relative;
+        display: flex;
+        border-bottom: 1px solid $gray;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+        @include title__icon();
+    }
+    &--product {
+        display: flex;
+        justify-content: space-between;
+        @include small__nosale('detail__content--product--item');
+        &--item {
+            width: 23%;
+        }
+    }
+}
+
+@media (max-width:1200px) {
+    #{$detailInfor}--tab span {
+        padding: 0.5rem 3rem;
+    }
+    #{$detailProduct} {
+        #{$detailProduct}--item--title {
+            margin-top: 0.5rem;
+        }
+        #{$detailProduct}--item--image p {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:880px) {
+    #{$detailMainProduct}--right {
+        span.rate {
+            margin: 0;
+        }
+        h3.price {
+            padding: 0.5rem 0;
+        }
+        &--social {
+            display: none;
+        }
+    }
+    #{$detailProduct} {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+        #{$detailProduct}--item {
+            width: 100%;
+        }
+    }
+    #{$detailInfor}--tab span {
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+@media (max-width:700px) {
+    #{$detailMainProduct}--right--detail {
+        font-size: 10px;
+    }
+    #{$detailMainProduct} {
+        &--right {
+            &--btn .btn__group .buy {
+                width: 110px;
+            }
+            &--amount {
+                p {
+                    font-size: 12px;
+                    margin-right: 1rem;
+                }
+                .amount {
+                    width: 3rem;
+                }
+            }
+        }
+    }
+    #{$detailInfor}--tab span {
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+@media (max-width:540px) {
+    #{$detailMainProduct} {
+        flex-direction: column;
+        &--left {
+            width: 100%;
+        }
+        &--right {
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+            &--btn .btn__group .buy {
+                width: 120px;
+            }
+        }
+    }
+    #{$detailInfor} {
+        display: none;
+    }
+    #{$detailMainProduct}--right--detail {
+        display: none;
+    }
+    #{$detailMainProduct}--right--amount {
+        display: none;
+    }
+    #{$detailProduct} {
+        grid-template-columns: repeat(1, 1fr);
+        #{$detailProduct}--item--image p {
+            display: block;
+            left: 32%;
+        }
+    }
+}

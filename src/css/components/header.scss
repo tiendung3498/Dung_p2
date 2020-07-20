@@ -1,0 +1,277 @@
+@import '../mixin/mixin.scss';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+header {
+    border-bottom: 1px solid $green;
+}
+
+.header__top {
+    background-color: black;
+    &--container {
+        @include container();
+        display: flex;
+        justify-content: space-between;
+        i {
+            font-size: 12px;
+        }
+        .openTime {
+            display: inherit;
+            color: #817c79;
+            p {
+                font-size: 15px;
+                margin: 5px;
+            }
+            i {
+                margin: 8px 10px;
+            }
+        }
+        .login__logout {
+            display: flex;
+            color: #817c79;
+            .login {
+                padding-right: 1rem;
+                cursor: pointer;
+            }
+            .login:hover {
+                color: white;
+            }
+            .logout {
+                cursor: pointer;
+            }
+            .logout:hover {
+                color: white;
+            }
+            i {
+                margin-top: 8px;
+            }
+            a {
+                text-decoration: none;
+                margin-top: 5px;
+                margin-left: 5px;
+                margin-right: 30px;
+                color: #817c79;
+            }
+        }
+    }
+}
+
+.header__background {
+    background: url('../../img/bg-banner.png') white;
+    background-size: cover;
+    height: 150px;
+    .header__content {
+        @include container();
+        &--logo {
+            width: 51%;
+            height: 160px;
+            display: inline-block;
+            background: url('../../img/logo.png') no-repeat center;
+        }
+        &--search {
+            width: 45%;
+            float: right;
+            margin-top: 20px;
+            &--hotline {
+                margin-left: 1rem;
+            }
+            &--search {
+                float: left;
+                margin-top: 1rem;
+                height: 42px;
+                width: 70%;
+                position: relative;
+                input {
+                    display: inline-block;
+                    @include full();
+                    box-sizing: border-box;
+                    outline: none;
+                    border: 1px solid white;
+                    padding: 15px 0 15px 20px;
+                    font-size: 0.8rem;
+                    border-radius: 1.2rem;
+                    color: $beige;
+                }
+                label {
+                    position: absolute;
+                    top: 4px;
+                    right: 4px;
+                    height: 80%;
+                    line-height: 2.25rem;
+                    color: $beige;
+                    padding: 0 18px;
+                    font-size: 0.8rem;
+                    border-left: 1px solid #dfdbdb;
+                }
+            }
+            &--cart {
+                float: right;
+                margin-top: 1.8rem;
+                i::before {
+                    padding-right: 0.5rem;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
+.header-navbar {
+    width: 100%;
+    height: 50px;
+    background-color: $green;
+    box-sizing: border-box;
+    &__menu {
+        list-style-type: none;
+        @include container();
+        box-sizing: border-box;
+        &-item {
+            float: left;
+            color: white;
+            padding: 1rem 1rem;
+            position: relative;
+            &:nth-child(1) {
+                padding-left: 0;
+                padding-right: 2rem;
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+            a {
+                text-decoration: none;
+                color: white;
+                text-transform: uppercase;
+                i {
+                    padding-left: 10px;
+                }
+            }
+            &:hover {
+                transition: 0.4s;
+                background-color: #36a66d;
+            }
+        }
+    }
+}
+
+.header-nav-hide {
+    height: 50px;
+    width: 100%;
+    background-color: $green;
+    position: relative;
+    display: none;
+    &__btn {
+        display: inline-block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        label {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            padding: 13px;
+            cursor: pointer;
+            span {
+                display: block;
+                width: 25px;
+                height: 10px;
+                border-top: 3px solid white;
+            }
+        }
+    }
+    &__group {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 16px;
+        i {
+            color: white;
+            padding: 0 0.5rem;
+        }
+    }
+    &__nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #36a66d;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+        z-index: 99;
+        a {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            color: white;
+            padding: 1rem 10px;
+            &:hover {
+                background-color: #36a66d;
+            }
+        }
+    }
+    #nav-check {
+        display: none;
+        &:checked~.header-nav-hide__nav-links {
+            height: 305px;
+        }
+    }
+}
+
+@media (max-width:1200px) {
+    .header__background {
+        .header__content--logo {
+            background: url('../../img/logo-footer.png') no-repeat center;
+        }
+    }
+    .header-navbar__menu {
+        &-item {
+            font-size: 14px;
+            padding: 1rem 0.5rem;
+        }
+    }
+    .header__background {
+        .header__content--search {
+            margin-top: 2rem;
+            &--cart {
+                display: none;
+            }
+            &--hotline {
+                margin-left: 0;
+                font-weight: bold;
+                font-size: 13px;
+            }
+            &--search {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .header__top--container {
+        display: none;
+    }
+    .header__background {
+        .header__content {
+            width: 91%;
+            &--logo {
+                background: url('../../img/logo-footer.png') no-repeat center;
+                width: 100%;
+            }
+            &--search {
+                display: none;
+            }
+        }
+    }
+    .header-navbar {
+        display: none;
+    }
+    .header-nav-hide {
+        display: block;
+    }
+}
