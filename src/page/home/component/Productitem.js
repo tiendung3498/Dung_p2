@@ -10,7 +10,7 @@ const Productitem = ({data,showDetail,addToCart})=>{
             <div className="hotproduct__grid--small--image">
                 <img src={process.env.PUBLIC_URL +data.img} alt="" />
                 <div></div>
-                <p><a onClick={addToCart}>{t('product.buy')}</a>
+                <p>{localStorage.getItem('logon')&&<a onClick={addToCart}>{t('product.buy')}</a>}
                     <a className="-search fas fa-search" onClick={showDetail}></a>
                 </p>
             </div>
@@ -23,7 +23,9 @@ const Productitem = ({data,showDetail,addToCart})=>{
                     <i className="fas fa-star-half-alt"></i>
                 </span>
             </p>
-    <p className="hotproduct__grid--small--price">{data.price}<del>{data.del}</del></p>
+            <p className="hotproduct__grid--small--price">{data.price+".000đ"}
+                <del>{data.del}</del>
+            </p>        
         </div>
     
     );

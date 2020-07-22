@@ -1,132 +1,245 @@
 {
-    "product": [{
-            "img": "../../../img/spx2-1.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
+  "product": [
+    {
+      "id": 1,
+      "img": "../../../img/spx2-1.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 2,
+      "img": "../../../img/spx2-2.png",
+      "name": "Cây danh dự",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 3,
+      "img": "../../../img/spx2-3.png",
+      "name": "Cây chân chim",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 4,
+      "img": "../../../img/spx2-4.png",
+      "name": "Cây cọ ta",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 5,
+      "img": "../../../img/spx2-5.png",
+      "name": "Cây dứa nhỏ",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 6,
+      "img": "../../../img/spx2-6.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 7,
+      "img": "../../../img/spx2-7.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 9,
+      "img": "../../../img/spx2-8.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 10,
+      "img": "../../../img/spx2-9.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 11,
+      "img": "../../../img/spx2-10.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 12,
+      "img": "../../../img/spx2-11.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 13,
+      "img": "../../../img/spx2-12.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 14,
+      "img": "../../../img/spx2-13.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 15,
+      "img": "../../../img/spx2-14.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 16,
+      "img": "../../../img/spx2-15.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    },
+    {
+      "id": 17,
+      "img": "../../../img/spx2-1.png",
+      "name": "Cây dạ lam",
+      "price": 250,
+      "del": "250.000 đ"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "dung",
+      "email": "dung@gmail.com",
+      "password": "1",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "name": "A",
+      "phone": "123456789",
+      "email": "a@gmail.com",
+      "password": "1",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "huy",
+      "phone": "123456789",
+      "email": "huy@gmail.com",
+      "password": "1",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "name": "tra",
+      "phone": "123456789",
+      "email": "tra@gmail.com",
+      "password": "1",
+      "role": "user"
+    }
+  ],
+  "carts": [
+    {
+      "idUser": 3,
+      "itemselected": [
+        {
+          "id": 1,
+          "img": "../../../img/spx2-1.png",
+          "name": "Cây dạ lam",
+          "price": 250,
+          "del": "250.000d",
+          "count": 11
         },
         {
-            "img": "../../../img/spx2-2.png",
-            "name": "Cây danh dự",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
+          "id": 2,
+          "img": "../../../img/spx2-2.png",
+          "name": "Cây danh dự",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 7
         },
         {
-            "img": "../../../img/spx2-3.png",
-            "name": "Cây chân chim",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
+          "id": 3,
+          "img": "../../../img/spx2-3.png",
+          "name": "Cây chân chim",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 3
         },
         {
-            "img": "../../../img/spx2-4.png",
-            "name": "Cây cọ ta",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
+          "id": 4,
+          "img": "../../../img/spx2-4.png",
+          "name": "Cây cọ ta",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 3
         },
         {
-            "img": "../../../img/spx2-5.png",
-            "name": "Cây dứa nhỏ",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
+          "id": 9,
+          "img": "../../../img/spx2-8.png",
+          "name": "Cây dạ lam",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 1
         },
         {
-            "img": "../../../img/spx2-6.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-7.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-8.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-9.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-10.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-11.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-12.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-13.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-14.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-15.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
-        },
-        {
-            "img": "../../../img/spx2-1.png",
-            "name": "Cây dạ lam",
-            "price": "250.000 đ",
-            "del": "250.000 đ"
+          "id": 5,
+          "img": "../../../img/spx2-5.png",
+          "name": "Cây dứa nhỏ",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 2
         }
-    ],
-    "users": [{
-            "id": "1",
-            "name": "dung",
-            "email": "dung@gmail.com",
-            "password": "1",
-            "role": "user"
+      ],
+      "id": 1
+    },
+    {
+      "idUser": 4,
+      "itemselected": [
+        {
+          "id": 3,
+          "img": "../../../img/spx2-3.png",
+          "name": "Cây chân chim",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 3
         },
         {
-            "id": 2,
-            "name": "A",
-            "phone": "123456789",
-            "email": "a@gmail.com",
-            "password": "1",
-            "role": "user"
+          "id": 4,
+          "img": "../../../img/spx2-4.png",
+          "name": "Cây cọ ta",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 2
         },
         {
-            "id": 3,
-            "name": "huy",
-            "phone": "123456789",
-            "email": "huy@gmail.com",
-            "password": "1",
-            "role": "user"
-        },
-        {
-            "id": 4,
-            "name": "tra",
-            "phone": "123456789",
-            "email": "tra@gmail.com",
-            "password": "1",
-            "role": "user"
+          "id": 2,
+          "img": "../../../img/spx2-2.png",
+          "name": "Cây danh dự",
+          "price": 250,
+          "del": "250.000 đ",
+          "count": 1
         }
-    ],
-    "carts": []
+      ],
+      "id": 4
+    },
+    {
+      "idUser": 1,
+      "itemselected": [],
+      "id": 5
+    },
+    {
+      "idUser": 2,
+      "itemselected": [],
+      "id": 6
+    }
+  ]
 }

@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 const SignIn =()=>{
 
-    const { t } = useTranslation('common');
+    const { t } = useTranslation('common')
     const Users = useSelector(state=>state.user.listUser)
     const dispatch = useDispatch();
 
@@ -33,7 +33,7 @@ const SignIn =()=>{
                 let findPass = Users.find(user=>user.password==passwords)
                 if(findPass){
                     window.location.href="/"
-                    localStorage.setItem('logon',JSON.stringify(findEmail.name))
+                    localStorage.setItem('logon',JSON.stringify({"id":findEmail.id,"name":findEmail.name}))
                 }
                 else alert(" mật khẩu không tồn tại")
             }

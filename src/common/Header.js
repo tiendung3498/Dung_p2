@@ -1,13 +1,17 @@
-import React, { useRef } from 'react'
+import React, { useRef,useEffect } from 'react'
 import HeaderNav from './component/HeaderNav'
 import { useTranslation } from 'react-i18next';
-
+import { useSelector, useDispatch} from 'react-redux'
+import { fetchCartUser } from '../redux/action/Cart'
 const Header = ()=>{
     const { t } = useTranslation('common');
     const handleSignOut = ()=>{
         localStorage.removeItem('logon')
-        window.location.reload()
+        window.location.href= '/'
     }
+    const dataCartUser = useSelector(state=>state.cart.listCartUser)
+
+
     return(
         <header>
         <div className="header__top">
@@ -27,7 +31,7 @@ const Header = ()=>{
                         {localStorage.getItem('logon')&&<i className="fas fa-user" onClick={handleSignOut}>{t('header.signout')}</i>}
                     </div>
                     <div className="login">
-                        <a href="/signup"><i className="fas fa-user-plus">{t('header.signup')}</i></a>
+                        {!localStorage.getItem('logon')&&<a href="/signup"><i className="fas fa-user-plus">{t('header.signup')}</i></a>}
                     </div>
                 </div>
             </div>
@@ -44,7 +48,7 @@ const Header = ()=>{
                         </div>
                         <div className="header__content--search--cart">
                             <a href="./cart">
-                                <i className="fas fa-shopping-basket"  >{t('header.cart')}</i>
+                              {localStorage.getItem('logon')&&<i className="fas fa-shopping-basket">{dataCartUser.length+" "}{t('header.cart')}</i>} 
                             </a>
                         </div>
                     </div>

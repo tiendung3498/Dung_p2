@@ -12,7 +12,7 @@
     },
     "header": {
         "phone": "HỖ TRỢ: (04) 6674 2332 - (04) 3786 8904",
-        "cart": "0 Sản phẩm",
+        "cart": "Sản phẩm",
         "time": "open time:8:00-18:00 Monday-Sunday",
         "signin": "đăng nhập",
         "signout": "đăng xuất",
@@ -128,7 +128,21 @@
         "email": "Địa chỉ email",
         "takemail": "Đăng ký nhận thông tin qua email",
         "back": "QUAY LẠI"
-
-
+    },
+    "cart": {
+        "cart": "GIỎ HÀNG",
+        "totalprice": "TỔNG TIỀN ( CHƯA THUẾ )",
+        "tax": "THUẾ ( VAT 10% )",
+        "totalpay": "TỔNG PHẢI THANH TOÁN",
+        "pay": "THANH TOÁN",
+        "column1": "HÌNH ẢNH",
+        "column2": "TÊN SẢN PHẨM",
+        "column3": "ĐƠN GIÁ",
+        "column4": "SỐ LƯỢNG",
+        "column5": "THÀNH TIỀN",
+        "column6": "XÓA",
+        "cancel": "HUỶ ĐƠN HÀNG",
+        "continuebuy": "TIẾP TỤC MUA",
+        "noproduct": "không có sản phẩm nào trong giỏ hàng"
     }
 }

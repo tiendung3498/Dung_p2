@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import './detail.css';
 import Header from '../../common/Header';
 import Footer from '../../common/Footer'
 import SameProduct from './component/SameProduct'
 import DetailInformation from './component/DetailInformation';
+import { useDispatch,useSelector } from 'react-redux'
+import {fetchCart, addToCart,fetchCartUser} from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
 
 const Detail = ()=>{
     const { t } = useTranslation('common');
+    const [count,setCount] = useState(1);
+    const counts = useRef(null)
+    const dispatch = useDispatch()
+    const users = JSON.parse(localStorage.getItem('logon'))
+    const listCartUser = useSelector(state=>state.cart.listCartUser)
+
+    useEffect(() => {
+        dispatch(fetchCartUser(users.id))
+    }, [listCartUser])
+    const onChange = ()=>{
+        setCount(parseInt(counts.current.value));
+    }
+    useEffect(() => {
+        dispatch(fetchCart())
+    }, [])
+    const addCart=(item)=>{
+        dispatch(addToCart(item,count))
+        setTimeout(() => {
+            window.location.href='/'
+        }, 500);
+        
+    }
     let item = JSON.parse(localStorage.getItem('item-detail'));
     if(item){
         return(
@@ -38,22 +62,29 @@ const Detail = ()=>{
                                     <i className="fas fa-star"></i>
                                     <i className="fas fa-star"></i>
                                 </span>
-                                <h3 className="price">{item.price}<del>{item.del}</del></h3>
+                                <h3 className="price">{item.price*count+".000đ"}<del>{item.del}</del></h3>
                                 <p className="detail__content--mainProduct--right--detail">
                                    {t('detail.des')}
                                 </p>
+                                {localStorage.getItem('logon')&&
                                 <div className="detail__content--mainProduct--right--amount">
                                    <p>{t('detail.quant')}</p>
-                                   <span className="sub">{t('detail.sub')}</span>
-                                   <span className="amount">{t('detail.count')}</span>
-                                   <span className="add">{t('detail.add')}</span>
+                                   <input className="form-control input--value" 
+                                        type="number" min="1" 
+                                        defaultValue={count}
+                                        ref = {counts}
+                                        onChange = {onChange} />
+                                    
                                 </div>
+                                }
                                 <div className="detail__content--mainProduct--right--btn">
+                                    {localStorage.getItem('logon')&&
                                     <div className="btn__group">
-                                        <a className="buy" href="#">{t('product.buy')}</a>
+                                        <a className="buy" onClick={()=>addCart(item)}>{t('product.buy')}</a>
                                         <a className="fas fa-search" href="#"></a>
                                         <a className="item-right__btn-another -love fas fa-heart" href="#"></a>
                                     </div>
+                                    }
                                 </div>
                                 <div className="detail__content--mainProduct--right--social">
                                     <a className="fb" href="#">
