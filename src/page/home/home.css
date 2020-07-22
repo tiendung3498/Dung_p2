@@ -42,7 +42,8 @@ header {
   padding-right: 1rem;
   cursor: pointer;
 }
-.header__top--container .login__logout .login:hover {
+.header__top--container .login__logout .login:hover a,
+.header__top--container .login__logout .login:hover i {
   color: white;
 }
 .header__top--container .login__logout .logout {

@@ -1,46 +1,50 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
+
 
 const FooterList = ()=>{
+    const { t } = useTranslation('common');
+
     return(
         <div className="footer__content--right">
                 <div className="footer__content--right--item">
-                    <h5>THÔNG TIN KHÁCH HÀNG</h5>
+                    <h5>{t('footerlist1.title')}</h5>
                     <ul>
-                        <li className="fas fa-chevron-right"> Tài khoản của tôi</li>
-                        <li className="fas fa-chevron-right"> Sản phẩm yêu thích</li>
-                        <li className="fas fa-chevron-right"> Lịch sử mua hàng</li>
-                        <li className="fas fa-chevron-right"> Chính sách đổi trả</li>
-                        <li className="fas fa-chevron-right"> Góp ý, khiếu nại</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist1.1')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist1.2')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist1.3')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist1.4')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist1.5')}</li>
                     </ul>
                 </div>
                 <div className="footer__content--right--item">
-                    <h5>HỖ TRỢ DỊCH VỤ</h5>
+                    <h5>{t('footerlist2.title')}</h5>
                     <ul>
-                        <li className="fas fa-chevron-right"> Hệ thống cửa hàng</li>
-                        <li className="fas fa-chevron-right"> Hướng dẫn mua hàng</li>
-                        <li className="fas fa-chevron-right"> Hướng dẫn thanh toán</li>
-                        <li className="fas fa-chevron-right"> Tích điểm đổi quà</li>
-                        <li className="fas fa-chevron-right"> Câu hỏi thường gặp</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist2.1')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist2.2')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist2.3')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist2.4')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist2.5')}</li>
                     </ul>
                 </div>
                 <div className="footer__content--right--item">
-                    <h5>CHÍNH SÁCH ƯU ĐÃI</h5>
+                    <h5>{t('footerlist3.title')}</h5>
                     <ul>
-                        <li className="fas fa-chevron-right"> Chính sách giao hàng</li>
-                        <li className="fas fa-chevron-right"> Chính sách đổi trả sản phẩm</li>
-                        <li className="fas fa-chevron-right"> Chính sách bảo hành</li>
-                        <li className="fas fa-chevron-right"> Giới thiệu sản phẩm mới</li>
-                        <li className="fas fa-chevron-right"> Chính sách trả góp</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist3.1')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist3.2')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist3.3')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist3.4')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist3.5')}</li>
                     </ul>
                 </div>
                 <div className="footer__content--right--item">
-                    <h5>TIN TỨC</h5>
+                    <h5>{t('footerlist4.title')}</h5>
                     <ul>
-                        <li className="fas fa-chevron-right"> Tin mới</li>
-                        <li className="fas fa-chevron-right"> Khuyến mại</li>
-                        <li className="fas fa-chevron-right"> Tuyển dụng</li>
-                        <li className="fas fa-chevron-right"> Download</li>
-                        <li className="fas fa-chevron-right"> Tags</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist4.1')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist4.2')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist4.3')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist4.4')}</li>
+                        <li className="fas fa-chevron-right"> {t('footerlist4.5')}</li>
                     </ul>
                 </div>
             </div>

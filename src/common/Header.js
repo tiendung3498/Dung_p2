@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import HeaderNav from './component/HeaderNav'
+import { useTranslation } from 'react-i18next';
 
 const Header = ()=>{
+    const { t } = useTranslation('common');
+    const handleSignOut = ()=>{
+        localStorage.removeItem('logon')
+        window.location.reload()
+    }
     return(
         <header>
         <div className="header__top">
             <div className="header__top--container">
                 <div className="openTime">
-                    <p>open time:8:00-18:00 Monday-Sunday</p>
+                    <p>{t('header.time')}</p>
                     <i className="fab fa-facebook-f"></i>
                     <i className="fab fa-twitter"></i>
                     <i className="fab fa-tumblr"></i>
@@ -15,10 +21,13 @@ const Header = ()=>{
                 </div>
                 <div className="login__logout">
                     <div className="login">
-                        <i className="fas fa-user" href='./signin'>đăng nhập</i>
+                        {!localStorage.getItem('logon')&&<a href='/signin'><i className="fas fa-user">{t('header.signin')}</i></a>}
                     </div>
-                    <div className="logout">
-                        <i className="fas fa-user-plus">đăng kí</i>
+                    <div className="login">
+                        {localStorage.getItem('logon')&&<i className="fas fa-user" onClick={handleSignOut}>{t('header.signout')}</i>}
+                    </div>
+                    <div className="login">
+                        <a href="/signup"><i className="fas fa-user-plus">{t('header.signup')}</i></a>
                     </div>
                 </div>
             </div>
@@ -27,7 +36,7 @@ const Header = ()=>{
                     <div className="header__content--logo"></div>
                     <div className="header__content--search">
                         <div className="header__content--search--hotline">
-                            <i className="fas fa-phone-alt">  HỖ TRỢ: (04) 6674 2332 - (04) 3786 8904</i>
+                            <i className="fas fa-phone-alt"> {t('header.phone')}</i>
                         </div>
                         <div className="header__content--search--search">
                             <input type="text" id="search" placeholder="Tìm kiếm..."/>
@@ -35,7 +44,7 @@ const Header = ()=>{
                         </div>
                         <div className="header__content--search--cart">
                             <a href="./cart">
-                                <i className="fas fa-shopping-basket"  >0 Sản phẩm</i>
+                                <i className="fas fa-shopping-basket"  >{t('header.cart')}</i>
                             </a>
                         </div>
                     </div>

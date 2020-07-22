@@ -1,15 +1,17 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 const FooterBottom = ()=>{
+    const { t } = useTranslation('common');
     return(
         <div className="footer__bottom">
             <div className="footer__bottom--left">
                 <ul>
-                    <li>Sitemap</li>
-                    <li>Danh mục sản phẩm</li>
-                    <li>Hợp tác</li>
-                    <li>Thông tin liên hệ</li>
-                    <li>Câu hỏi thường gặp</li>
+                    <li>{t('footerbottom.1')}</li>
+                    <li>{t('footerbottom.2')}</li>
+                    <li>{t('footerbottom.3')}</li>
+                    <li>{t('footerbottom.4')}</li>
+                    <li>{t('footerbottom.5')}</li>
                 </ul>
             </div>
             <div className="footer__bottom--right">

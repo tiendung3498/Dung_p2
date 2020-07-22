@@ -13,7 +13,9 @@ const Banner= ()=>{
                 <li></li>
                 <li></li>
                 <li></li>
-            </ul><span>        </span></div>
+            </ul>
+            <span></span>
+        </div>
      </section>
     
     );

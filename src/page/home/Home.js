@@ -10,10 +10,13 @@ import SaleProduct from './component/SaleProduct'
 import News from './component/News'
 import "./home.css";
 import Axios from 'axios'
+import { useTranslation } from 'react-i18next';
+
 const Home = ()=>{
     const urlCart = process.env.REACT_APP_CARTS
     const dispatch = useDispatch();
     const listProduct = useSelector(state=>state.product.listProduct)
+    const { t } = useTranslation('common');
 
     useEffect(() => {
         dispatch(fetchProduct())
@@ -41,7 +44,7 @@ const Home = ()=>{
             </section>
             <section className="newproduct">
                 <div className="newproduct__title">
-                    <h4>Sản phẩm mới</h4>
+                    <h4>{t('menu.newproduct')}</h4>
                     <div>
                       <span className="fas fa-chevron-left"></span>
                       <span className="fas fa-chevron-right"></span>

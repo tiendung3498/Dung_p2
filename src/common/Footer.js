@@ -1,13 +1,16 @@
 import React from 'react'
 import FooterList from './component/FooterList'
 import FooterBottom from './component/FooterBottom'
+import { useTranslation } from 'react-i18next';
+
 const Footer = ()=>{
+    const { t } = useTranslation('common');
     return(
         <footer>
         <div className="footer__top">
             <div className="footer__top--left">
                 <div className="footer__top--left--icon">
-                    <h5>KÊNH THÔNG TIN TỪ CHÚNG TÔI : </h5>
+                    <h5>{t('footertop.1')} </h5>
                     <ul>
                         <li className="fab fa-facebook-f"></li>
                         <li className="fab fa-twitter"></li>
@@ -16,8 +19,8 @@ const Footer = ()=>{
                     </ul>
                 </div>
                 <div className="footer__top--left--email">
-                    <h5>ĐĂNG KÝ NHẬN </h5>
-                    <h5>EMAIL TỪ CHÚNG TÔI</h5>
+                    <h5>{t('footertop.2')} </h5>
+                    <h5>{t('footertop.3')}</h5>
                 </div>
             </div>
             <div className="footer__top--right">
@@ -31,15 +34,15 @@ const Footer = ()=>{
         <div className="footer__content">
             <div className="footer__content--left">
                 <img src={process.env.PUBLIC_URL+"/img/logo-footer.png"} alt=""/>
-                <p>Green shop được thành lập từ 8/2010 được sự tin tưởng của khách hàng trong suốt thời gian hoạt động đến nay cửa hàng ngày một phát triển</p>
-                <p className="fas fa-mobile-alt">Điện thoại : (84-4) 66.558.868</p>
-                <p className="far fa-envelope">Email : info@dkt.com.vn</p>
+                <p>{t('footer.intro')}</p>
+                <p className="fas fa-mobile-alt">{t('footer.phone')}</p>
+                <p className="far fa-envelope">{t('footer.email')}</p>
             </div>
             <FooterList/>
         </div>
         <hr/>
         <FooterBottom/>
-        <div className="footer__design">Thiết kế bởi Bizweb
+        <div className="footer__design">{t('footerbottom.design')}
            <i className="far fa-copyright"></i>
         </div>
     </footer>   

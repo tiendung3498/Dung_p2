@@ -38,7 +38,10 @@ header {
                 cursor: pointer;
             }
             .login:hover {
-                color: white;
+                a,
+                i {
+                    color: white;
+                }
             }
             .logout {
                 cursor: pointer;

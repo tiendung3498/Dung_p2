@@ -4,14 +4,17 @@ import Header from '../../common/Header';
 import Footer from '../../common/Footer'
 import SameProduct from './component/SameProduct'
 import DetailInformation from './component/DetailInformation';
+import { useTranslation } from 'react-i18next';
+
 const Detail = ()=>{
+    const { t } = useTranslation('common');
     let item = JSON.parse(localStorage.getItem('item-detail'));
     if(item){
         return(
             <div>
                 <Header/>
                     <div className="detail__title">
-                       <div>Home /
+                       <div>{t('home.home')}
                            <a href="#">{item.name}</a>
                         </div>
                     </div>
@@ -36,42 +39,43 @@ const Detail = ()=>{
                                     <i className="fas fa-star"></i>
                                 </span>
                                 <h3 className="price">{item.price}<del>{item.del}</del></h3>
-                                <p className="detail__content--mainProduct--right--detail">Cây mọc thành bụi thưa, thân vươn thẳng với chiều cao cây trung bình từ 0,8-1,2m. Lá hình trứng, mép lá nguyên, gân lá nổi rõ, phiến rộng khoảng từ 15-20cm. Lá có màu xanh đậm ở mặt trên, quanh gân lá có màu trắng sữa; mặt dưới lá nhạt
-                                 màu hơn. Lá cây dạ lam mọc cách, cuống lá dài khi rụng để lại các khía màu nâu nhạt.</p>
+                                <p className="detail__content--mainProduct--right--detail">
+                                   {t('detail.des')}
+                                </p>
                                 <div className="detail__content--mainProduct--right--amount">
-                                   <p>Số lượng</p>
-                                   <span className="sub">-</span>
-                                   <span className="amount">1</span>
-                                   <span className="add">+</span>
+                                   <p>{t('detail.quant')}</p>
+                                   <span className="sub">{t('detail.sub')}</span>
+                                   <span className="amount">{t('detail.count')}</span>
+                                   <span className="add">{t('detail.add')}</span>
                                 </div>
                                 <div className="detail__content--mainProduct--right--btn">
                                     <div className="btn__group">
-                                        <a className="buy" href="#">Mua ngay</a>
+                                        <a className="buy" href="#">{t('product.buy')}</a>
                                         <a className="fas fa-search" href="#"></a>
                                         <a className="item-right__btn-another -love fas fa-heart" href="#"></a>
                                     </div>
                                 </div>
                                 <div className="detail__content--mainProduct--right--social">
                                     <a className="fb" href="#">
-                                        <i className="fab fa-facebook-square">Like</i>
-                                        <span>0</span>
+                                        <i className="fab fa-facebook-square">{t(' Like')}</i>
+                                        <span>{t('detail.count')}</span>
                                     </a>
                                     <a className="twitch" href="#">
-                                        <i className="fab fa-twitter">Tweet</i>
+                                        <i className="fab fa-twitter">{t('Tweet')}</i>
                                     </a>
                                     <a className="gg" href="#">
                                         <i className="fab fa-google-plus-g"></i>
-                                        <span>0</span>
+                                        <span>{t(' 0')}</span>
                                     </a>
-                                    <a className="share" href="#">
-                                        <i className="fas fa-plus-square">Share</i>
+                                    <a className="Share" href="#">
+                                        <i className="fas fa-plus-square">{t('Sharet')}</i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <DetailInformation/>   
                         <div className="detail__content--title">
-                           <h4>Sản phẩm cùng loại</h4>
+                           <h4>{t('Sản phẩm cùng loại')}</h4>
                         <div>
                             <span className="fas fa-chevron-left"></span>
                             <span className="fas fa-chevron-right"></span>

@@ -1,6 +1,9 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next';
 const HeaderNav = ()=>{
+
+const { t } = useTranslation('common');
+
  return(
     <div>
         <div className="header-navbar">
@@ -8,12 +11,12 @@ const HeaderNav = ()=>{
                 <li className="header-navbar__menu-item">
                     <a className="fas fa-bars" href="#"></a>
                 </li>
-                <li className="header-navbar__menu-item"><a href="/">trang chủ</a></li>
-                <li className="header-navbar__menu-item"><a href="#">giới thiệu</a></li>
-                <li className="header-navbar__menu-item"><a href="#">sản phẩm<i className="fas fa-caret-down"></i></a></li>
-                <li className="header-navbar__menu-item"><a href="#">sản phẩm mới<i className="fas fa-caret-down"></i></a></li>
-                <li className="header-navbar__menu-item"><a href="#">tin tức</a></li>
-                <li className="header-navbar__menu-item"><a href="#">liên hệ</a></li>
+                <li className="header-navbar__menu-item"><a href="/">{t('menu.home')}</a></li>
+                <li className="header-navbar__menu-item"><a href="#">{t('menu.introduction')}</a></li>
+                <li className="header-navbar__menu-item"><a href="#">{t('menu.product')}<i className="fas fa-caret-down"></i></a></li>
+                <li className="header-navbar__menu-item"><a href="#">{t('menu.newproduct')}<i className="fas fa-caret-down"></i></a></li>
+                <li className="header-navbar__menu-item"><a href="#">{t('menu.news')}</a></li>
+                <li className="header-navbar__menu-item"><a href="#">{t('menu.contact')}</a></li>
             </ul>
         </div>
         <div className="header-nav-hide"><input type="checkbox" id="nav-check"/>
@@ -29,12 +32,12 @@ const HeaderNav = ()=>{
                 <i className="fas fa-shopping-basket"></i>
             </div>
             <div className="header-nav-hide__nav-links">
-                <a href="#">trang chủ</a>
-                <a href="#">giới thiệu</a>
-                <a href="#">sản phẩm</a>
-                <a href="#">sản phẩm mới</a>
-                <a href="#">tin tức</a>
-                <a href="#">liên hệ</a>
+                <a href="#">{t('menu.home')}</a>
+                <a href="#">{t('menu.introduction')}</a>
+                <a href="#">{t('menu.product')}</a>
+                <a href="#">{t('menu.newproduct')}</a>
+                <a href="#">{t('menu.news')}</a>
+                <a href="#">{t('menu.contact')}</a>
                 </div>
         </div>
     </div>
