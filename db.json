@@ -130,7 +130,7 @@
         {
             "id": 3,
             "name": "huy",
-            "phone": "123456789",
+            "phone": "1234567891",
             "email": "huy@gmail.com",
             "password": "1",
             "role": "user"
@@ -146,23 +146,7 @@
     ],
     "carts": [{
             "idUser": 3,
-            "itemselected": [{
-                    "id": 1,
-                    "img": "../../../img/spx2-1.png",
-                    "name": "Cây dạ lam",
-                    "price": 250,
-                    "del": "250.000d",
-                    "count": 11
-                },
-                {
-                    "id": 5,
-                    "img": "../../../img/spx2-5.png",
-                    "name": "Cây dứa nhỏ",
-                    "price": 250,
-                    "del": "250.000 đ",
-                    "count": 2
-                }
-            ],
+            "itemselected": [],
             "id": 1
         },
         {
@@ -232,6 +216,159 @@
             "name": "Cây dạ lam",
             "price": 350,
             "del": "250.000 đ"
+        }
+    ],
+    "orders": [{
+            "idUser": 3,
+            "idOrder": 1,
+            "time": "04/08/2020",
+            "status": "chờ xác nhận",
+            "item": [{
+                    "id": 6,
+                    "img": "../../../img/spx2-6.png",
+                    "name": "Cây kim ngân",
+                    "price": 500,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 7,
+                    "img": "../../../img/spx2-7.png",
+                    "name": "Cây đa búp đỏ",
+                    "price": 450,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 9,
+                    "img": "../../../img/spx2-8.png",
+                    "name": "Cây hồng môn",
+                    "price": 150,
+                    "del": "250.000 đ",
+                    "count": 1
+                }
+            ],
+            "id": 1
+        },
+        {
+            "idUser": 3,
+            "idOrder": 2,
+            "time": "05/08/2020",
+            "status": "chờ xác nhận",
+            "item": [{
+                    "id": 1,
+                    "img": "../../../img/spx2-1.png",
+                    "name": "Cây dạ lam",
+                    "price": 250,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 2,
+                    "img": "../../../img/spx2-2.png",
+                    "name": "Cây danh dự",
+                    "price": 300,
+                    "del": "250.000 đ",
+                    "count": 1
+                }
+            ],
+            "id": 2
+        },
+        {
+            "idUser": 3,
+            "idOrder": 3,
+            "status": "chờ xác nhận",
+            "time": "05/08/2020",
+            "item": [{
+                    "id": 2,
+                    "img": "../../../img/spx2-2.png",
+                    "name": "Cây danh dự",
+                    "price": 300,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 10,
+                    "img": "../../../img/spx2-9.png",
+                    "name": "Cây phát lộc",
+                    "price": 250,
+                    "del": "250.000 đ",
+                    "count": 1
+                }
+            ],
+            "id": 3
+        },
+        {
+            "idUser": 3,
+            "idOrder": 4,
+            "status": "chờ xác nhận",
+            "time": "05/08/2020",
+            "item": [{
+                    "id": 7,
+                    "img": "../../../img/spx2-7.png",
+                    "name": "Cây đa búp đỏ",
+                    "price": 450,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 9,
+                    "img": "../../../img/spx2-8.png",
+                    "name": "Cây hồng môn",
+                    "price": 150,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 2,
+                    "img": "../../../img/spx2-2.png",
+                    "name": "Cây danh dự",
+                    "price": 300,
+                    "del": "250.000 đ",
+                    "count": 2
+                }
+            ],
+            "id": 4
+        },
+        {
+            "idUser": 3,
+            "idOrder": 5,
+            "status": "chờ xác nhận",
+            "time": "05/08/2020",
+            "item": [{
+                    "id": 5,
+                    "img": "../../../img/spx2-5.png",
+                    "name": "Cây dứa nhỏ",
+                    "price": 350,
+                    "del": "250.000 đ",
+                    "count": 2
+                },
+                {
+                    "id": 6,
+                    "img": "../../../img/spx2-6.png",
+                    "name": "Cây kim ngân",
+                    "price": 500,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 7,
+                    "img": "../../../img/spx2-7.png",
+                    "name": "Cây đa búp đỏ",
+                    "price": 450,
+                    "del": "250.000 đ",
+                    "count": 1
+                },
+                {
+                    "id": 9,
+                    "img": "../../../img/spx2-8.png",
+                    "name": "Cây hồng môn",
+                    "price": 150,
+                    "del": "250.000 đ",
+                    "count": 1
+                }
+            ],
+            "id": 5
         }
     ]
 }

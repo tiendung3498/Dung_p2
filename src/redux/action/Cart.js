@@ -1,6 +1,6 @@
 import Axios from 'axios'
 const urlCart =process.env.REACT_APP_CARTS
-
+const urlOrder =process.env.REACT_APP_ORDERS
 export const fetchCart = () =>{
     return async dispatch =>{
             try {
@@ -33,6 +33,39 @@ export const fetchCartUser = (id) =>{
         }
              
 }
+export const fetchOrder = (id) =>{
+    return async dispatch =>{
+            try {
+                Axios.get(urlOrder+"?idUser="+id)
+                .then(
+                    response=>{
+                        if(response.data[0]) dispatch(showListOrder(response.data))
+                        else return
+                    })
+ 
+            } catch (error) {
+                alert('Error: '+error.message);
+                
+            }
+        }     
+}
+export const fetchItemOrder = (idOrder) =>{
+    return async dispatch =>{
+            try {
+                Axios.get(urlOrder+"?idOrder="+idOrder)
+                .then(
+                    response=>{
+                        if(response.data[0]) dispatch(showListItemOrder(response.data[0].item))
+                        else return
+                    })
+ 
+            } catch (error) {
+                alert('Error: '+error.message);
+                
+            }
+        }
+             
+}
 
 export const showListCart = listCart => {
     return {
@@ -45,6 +78,18 @@ export const showListCartUser = listCart => {
     return {
         type: 'showListCartUser',
         listCart,     
+    }
+}
+export const showListOrder = listOrder => {
+    return {
+        type: 'showListOrder',
+        listOrder,     
+    }
+}
+export const showListItemOrder = listOrder => {
+    return {
+        type: 'showListItemOrder',
+        listOrder,     
     }
 }
 export const deleteItemCart = id => {
@@ -64,5 +109,12 @@ export const addToCart = (item,count) => {
         type: 'addToCart',
         item,
         count     
+    }
+}
+export const addToOrder = (listItem,day) => {
+    return {
+        type: 'addToOrder',
+        listItem,
+        day  
     }
 }

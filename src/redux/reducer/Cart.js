@@ -1,10 +1,14 @@
 import Axios from 'axios'
 const initState = {
     listCart : [],
-    listCartUser : []
+    listCartUser : [],
+    listOrder:[],
+    listItemOrder:[]
 }   
 const users = JSON.parse(localStorage.getItem('logon'))
 const urlCart =process.env.REACT_APP_CARTS
+const urlOrder =process.env.REACT_APP_ORDERS
+
 
 
 const CartReducer = (state=initState,action)=>{
@@ -23,7 +27,20 @@ const CartReducer = (state=initState,action)=>{
                     listCartUser: action.listCart
                 }
             }
-        
+        case 'showListOrder':
+            {
+                return {
+                    ...state,
+                    listOrder: action.listOrder
+                }
+            }
+        case 'showListItemOrder':
+            {
+                return {
+                    ...state,
+                    listItemOrder: action.listOrder
+                }
+            }
         case 'addToCart':
             let newCart = [...state.listCart]
             action.item.count=action.count
@@ -70,7 +87,15 @@ const CartReducer = (state=initState,action)=>{
                     ...state,
                     listCartUser: newCart3
                 }
-                 
+        case 'addToOrder':
+            const newListOrder = [...state.listOrder]
+            const newOrder = {idUser:users.id,idOrder:newListOrder.length+1,status:"chờ xác nhận",time:action.day,item:action.listItem}
+            Axios.post(urlOrder,newOrder)
+            newListOrder.push(newOrder)
+            return{
+                ...state,
+                listOrder:newListOrder
+            }
         default: 
            return {...state}
     }

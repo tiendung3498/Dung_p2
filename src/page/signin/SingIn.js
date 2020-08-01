@@ -33,7 +33,7 @@ const SignIn =()=>{
                 let findPass = Users.find(user=>user.password==passwords)
                 if(findPass){
                     window.location.href="/"
-                    localStorage.setItem('logon',JSON.stringify({"id":findEmail.id,"name":findEmail.name}))
+                    localStorage.setItem('logon',JSON.stringify(findEmail))
                 }
                 else alert(" mật khẩu không tồn tại")
             }

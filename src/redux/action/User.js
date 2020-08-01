@@ -20,3 +20,10 @@ export const showListUser = listUser => {
         listUser,      
     }
 }
+export const updateUser = (id,newUser) => {
+    return {
+        type: 'updateUser',
+        id,
+        newUser      
+    }
+}

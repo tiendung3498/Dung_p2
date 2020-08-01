@@ -132,7 +132,9 @@
         "phone": "Số điện thoại",
         "email": "Địa chỉ email",
         "takemail": "Đăng ký nhận thông tin qua email",
-        "back": "QUAY LẠI"
+        "back": "QUAY LẠI",
+        "update": "cập nhật",
+        "info": "THÔNG TIN CỦA BẠN"
     },
     "cart": {
         "cart": "GIỎ HÀNG",
@@ -149,5 +151,18 @@
         "cancel": "HUỶ ĐƠN HÀNG",
         "continuebuy": "TIẾP TỤC MUA",
         "noproduct": "không có sản phẩm nào trong giỏ hàng"
+    },
+    "order": {
+        "idUser": "MÃ KHÁCH HÀNG",
+        "idOrder": "MÃ ĐƠN HÀNG",
+        "time": "THỜI GIAN",
+        "status": "TRẠNG THÁI",
+        "detail": "CHI TIẾT ĐƠN HÀNG",
+        "idProduct": "MÃ SẢN PHẨM",
+        "nameProduct": "TÊN SẢN PHẨM",
+        "price": "ĐƠN GIÁ",
+        "count": "SỐ LƯỢNG",
+        "img": "HÌNH ẢNH",
+        "show": "chi tiết"
     }
 }
