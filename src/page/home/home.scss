@@ -430,7 +430,6 @@
         display: grid;
         width: 100%;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 370px 370px;
         grid-gap: 1.8rem;
         &--item {
             position: relative;
@@ -462,6 +461,19 @@
                 }
             }
         }
+    }
+}
+
+.product__sort-box {
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+    p {
+        padding: 10px;
+    }
+    select {
+        width: 100px;
+        height: 40px;
     }
 }
 

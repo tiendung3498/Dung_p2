@@ -82,7 +82,12 @@
         "6": "Cây đa búp đỏ",
         "7": "cây hồng môn",
         "8": "cây phát lộc",
-        "9": "cây kim ngân"
+        "9": "cây kim ngân",
+        "orderby": "Sắp xếp theo",
+        "select": "chọn",
+        "price": "giá",
+        "anphabet": "bảng chữ cái",
+        "recentlyproduct": "đã xem gần đây"
     },
     "price": {
         "1": "250.000 đ",

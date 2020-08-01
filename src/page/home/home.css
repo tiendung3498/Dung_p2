@@ -921,7 +921,6 @@ footer .footer__design {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 370px 370px;
   grid-gap: 1.8rem;
 }
 .newproduct__grid--item {
@@ -941,6 +940,19 @@ footer .footer__design {
 .newproduct__grid--item--price del {
   padding-left: 0.7rem;
   color: #c2c2c2;
+}
+
+.product__sort-box {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.product__sort-box p {
+  padding: 10px;
+}
+.product__sort-box select {
+  width: 100px;
+  height: 40px;
 }
 
 .news {
