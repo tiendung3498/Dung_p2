@@ -68,7 +68,8 @@ const Home = ()=>{
                 <ProductTitle title = {t('menu.newproduct')}/>
                 <SortProduct sort = {sort} handleChange ={handleChange}/>
                 <div className="newproduct__grid">
-                    {listProduct.map(item=><Productitem data = {item}
+                    {listProduct.map(item=> item.status && 
+                                            <Productitem data = {item}
                                                 showDetail ={()=>showDetail(item)}
                                                 addToCart = {()=>addItem(item)}
                                                   />)}

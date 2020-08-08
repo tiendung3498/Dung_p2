@@ -150,7 +150,10 @@
         "column6": "XÓA",
         "cancel": "HUỶ ĐƠN HÀNG",
         "continuebuy": "TIẾP TỤC MUA",
-        "noproduct": "không có sản phẩm nào trong giỏ hàng"
+        "noproduct": "không có sản phẩm nào trong giỏ hàng",
+        "column0": "Mã Sản Phẩm",
+        "column7": "Giảm Giá",
+        "column8": "Hoạt Động"
     },
     "order": {
         "idUser": "MÃ KHÁCH HÀNG",
@@ -164,5 +167,17 @@
         "count": "SỐ LƯỢNG",
         "img": "HÌNH ẢNH",
         "show": "chi tiết"
+    },
+    "menuAdmin": {
+        "dashboard": "Bảng điều khiển",
+        "product": "Sản phẩm",
+        "user": "Người dùng",
+        "listorder": "Đơn hàng",
+        "namestore": "GREEN SHOP",
+        "tableproduct": "Bảng Sản Phẩm"
+    },
+    "role": {
+        "add": "Thêm sản phẩm",
+        "update": "cập nhật"
     }
 }

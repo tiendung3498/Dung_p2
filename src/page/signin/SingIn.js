@@ -32,8 +32,15 @@ const SignIn =()=>{
             if(findEmail){
                 let findPass = Users.find(user=>user.password==passwords)
                 if(findPass){
-                    window.location.href="/"
-                    localStorage.setItem('logon',JSON.stringify(findEmail))
+                    if(findEmail.role == 'user')
+                    {
+                        window.location.href="/"
+                        localStorage.setItem('logon',JSON.stringify(findEmail))
+                    }
+                    else{
+                        window.location.href="/admin-products"
+                        localStorage.setItem('logon',JSON.stringify(findEmail))
+                    }
                 }
                 else alert(" mật khẩu không tồn tại")
             }

@@ -2,9 +2,11 @@ import Axios from 'axios'
 const initState = {
     listProduct : [],
     sort: '1',
-    listViewed:[]
+    listViewed:[],
+    rendirect:1
 }
 const urlViewed =process.env.REACT_APP_VIEWEDS
+const urlProduct =process.env.REACT_APP_PRODUCTS
 
 const sortProduct = (arr,sort)=>{
     if(sort == 2){
@@ -68,7 +70,42 @@ const ProductReducer = (state=initState,action)=>{
                     sort: action.value
                 }
             } 
-        
+        case 'changeRendirect':
+            {
+                return {
+                    ...state,
+                    rendirect: action.value
+                }
+            }
+        case 'updateProduct':
+            const newListProduct = [...state.listProduct]
+            let findProduct = newListProduct.find(item=>item.id == action.id)
+            if(findProduct) findProduct = action.item
+            Axios.put(urlProduct+"/"+findProduct.id,action.item)
+            {
+                return{
+                    ...state,
+                    listProduct:newListProduct
+                }
+            }
+        case 'changeStatusProduct':
+            const newListProduct1 = [...state.listProduct]
+            let index = newListProduct1.findIndex(item=>item.id==action.item.id)
+            newListProduct1[index].status = !newListProduct1[index].status
+            Axios.put(urlProduct+"/"+action.item.id,newListProduct1[index])
+            return{
+                ...state,
+                listProduct:newListProduct1
+            }
+        case 'addProduct':
+            const newListProduct2 = [...state.listProduct]
+            newListProduct2.push(action.item)
+            Axios.post(urlProduct,action.item)
+            return{
+                ...state,
+                listProduct:newListProduct2
+            }
+                             
         default: 
            return {...state}
     }

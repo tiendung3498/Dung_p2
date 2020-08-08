@@ -1,0 +1,54 @@
+.admin--page {
+  text-align: left;
+}
+
+.img_select {
+  width: 120px;
+}
+
+nav {
+  background-color: #3fb871 !important;
+  color: white !important;
+  border-bottom: 2px solid white;
+}
+
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: #3fb871;
+}
+
+.nav-item {
+  margin: 5px;
+}
+.nav-item:hover {
+  background-color: white;
+}
+.nav-item span {
+  padding-left: 10px;
+}
+
+.wrap--admin {
+  display: flex;
+}
+.wrap--admin ul {
+  min-width: 250px;
+  background-color: #3fb871 !important;
+}
+
+.wrap--content {
+  width: 100%;
+  border-left: 1px solid;
+}
+
+.btn-ligth {
+  background-color: #3fb871 !important;
+  color: white !important;
+}
+
+.logo {
+  color: white !important;
+}
+
+/*# sourceMappingURL=Admin.css.map */

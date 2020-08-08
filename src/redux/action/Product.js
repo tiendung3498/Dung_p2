@@ -53,3 +53,28 @@ export const changeSort = value => {
         value,
     }
 }
+export const changeRendirect = value => {
+    return {
+        type: 'changeRendirect',
+        value,
+    }
+}
+export const updateProduct = (id,item) => {
+    return {
+        type: 'updateProduct',
+        id,
+        item
+    }
+}
+export const changeStatusProduct = (item) => {
+    return {
+        type: 'changeStatusProduct',
+        item
+    }
+}
+export const addProduct = (item) => {
+    return {
+        type: 'addProduct',
+        item
+    }
+}
