@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateProduct, changeRendirect } from '../../../../redux/action/Product'
+import { updateProduct, changeRendirectProduct } from '../../../../redux/action/Product'
 import { useTranslation } from 'react-i18next';
 
 const EditProduct = (data)=>{
@@ -25,7 +25,7 @@ const EditProduct = (data)=>{
           const del = products.del
           const update = {id:id,img:image,name:name,price:price,del:del}
           dispatch(updateProduct(id,update))
-          dispatch(changeRendirect(1))
+          dispatch(changeRendirectProduct(1))
     }
 
     return(

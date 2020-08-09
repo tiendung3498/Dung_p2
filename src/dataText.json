@@ -174,10 +174,17 @@
         "user": "Người dùng",
         "listorder": "Đơn hàng",
         "namestore": "GREEN SHOP",
-        "tableproduct": "Bảng Sản Phẩm"
+        "tableproduct": "Bảng Sản Phẩm",
+        "tableUser": "Bảng Người Dùng"
     },
     "role": {
         "add": "Thêm sản phẩm",
-        "update": "cập nhật"
+        "update": "cập nhật",
+        "addUser": "Thêm người dùng"
+    },
+    "user": {
+        "id": "Mã Người Dùng",
+        "name": "Tên Người Dùng"
+
     }
 }

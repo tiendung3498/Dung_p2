@@ -53,7 +53,7 @@ export const changeSort = value => {
         value,
     }
 }
-export const changeRendirect = value => {
+export const changeRendirectProduct = value => {
     return {
         type: 'changeRendirect',
         value,

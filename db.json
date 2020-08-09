@@ -167,7 +167,8 @@
       "name": "dung",
       "email": "dung@gmail.com",
       "password": "1",
-      "role": "admin"
+      "role": "admin",
+      "status": true
     },
     {
       "id": 2,
@@ -175,15 +176,15 @@
       "phone": "123456789",
       "email": "nhat@gmail.com",
       "password": "1",
-      "role": "user"
+      "status": true
     },
     {
       "id": 3,
       "name": "huy",
-      "phone": "123456789",
+      "phone": "1234567891",
       "email": "huy@gmail.com",
       "password": "1",
-      "role": "user"
+      "status": true
     },
     {
       "id": 4,
@@ -191,7 +192,17 @@
       "phone": "123456789",
       "email": "tra@gmail.com",
       "password": "1",
-      "role": "user"
+      "role": "user",
+      "status": true
+    },
+    {
+      "id": 5,
+      "name": "chinh",
+      "phone": "chinh@gmail.com",
+      "email": "123456789",
+      "password": "1",
+      "role": "user",
+      "status": true
     }
   ],
   "carts": [

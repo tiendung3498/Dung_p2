@@ -8,6 +8,7 @@ import Signup from '../page/signUp/Signup'
 import Cart from '../page/cart/Cart'
 import Admin from '../page/admin/Admin';
 import Product from '../page/admin/Product';
+import User from '../page/admin/User';
 const Layout = ()=>{
         return(
             <Router>
@@ -20,6 +21,7 @@ const Layout = ()=>{
                     <Route path="/cart" exact component={() => <Cart/>} />
                     <Route path="/admin" exact component={() => <Admin/>} />
                     <Route path="/admin-products" exact component={() => <Product/>} />
+                    <Route path="/admin-users" exact component={() => <User/>} />
 
                 </Switch>
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import RowProductItem from './RowProductItem'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProduct, changeRendirect } from '../../../../redux/action/Product';
+import { fetchProduct, changeRendirectProduct } from '../../../../redux/action/Product';
 import { useTranslation } from 'react-i18next';
 
 const TableProduct = ()=>{
@@ -13,12 +13,12 @@ const TableProduct = ()=>{
     const sort = useSelector(state=>state.product.sort)
 
     const addProduct = ()=>{
-        dispatch(changeRendirect(3))
+        dispatch(changeRendirectProduct(3))
 
     }
     const editProduct = (item)=>{
        localStorage.setItem('product-update',JSON.stringify(item))
-       dispatch(changeRendirect(2))
+       dispatch(changeRendirectProduct(2))
     }
 
     useEffect(() => {

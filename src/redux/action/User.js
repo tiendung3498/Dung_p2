@@ -27,3 +27,29 @@ export const updateUser = (id,newUser) => {
         newUser      
     }
 }
+
+export const changeStatusUser = (item) => {
+    return {
+        type: 'changeStatusUser',
+        item
+    }
+}
+export const changeRendirectUser = value => {
+    return {
+        type: 'changeRendirect',
+        value,
+    }
+}
+export const updateUsers = (id,newUser) => {
+    return {
+        type: 'updateUsers',
+        id,
+        newUser      
+    }
+}
+export const addUser = (item) => {
+    return {
+        type: 'addUser',
+        item
+    }
+}

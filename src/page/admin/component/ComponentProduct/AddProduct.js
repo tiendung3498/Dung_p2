@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { changeRendirect, addProduct } from '../../../../redux/action/Product'
+import { changeRendirectProduct, addProduct } from '../../../../redux/action/Product'
 import { useTranslation } from 'react-i18next';
 
 const AddProduct = ()=>{
@@ -25,7 +25,7 @@ const AddProduct = ()=>{
         const status = true
         const newproduct ={id,img,name,price,del,status}
         dispatch(addProduct(newproduct))
-        dispatch(changeRendirect(1))
+        dispatch(changeRendirectProduct(1))
     }
     return(
         <div className="mt-3">
