@@ -3,7 +3,8 @@ const initState = {
     listCart : [],
     listCartUser : [],
     listOrder:[],
-    listItemOrder:[]
+    listItemOrder:[],
+    listAllOrder:[]
 }   
 const users = JSON.parse(localStorage.getItem('logon'))
 const urlCart =process.env.REACT_APP_CARTS
@@ -41,6 +42,13 @@ const CartReducer = (state=initState,action)=>{
                     listItemOrder: action.listOrder
                 }
             }
+        case 'showListAllOrder':
+                {
+                    return {
+                        ...state,
+                        listAllOrder: action.listOrder
+                    }
+                }
         case 'addToCart':
             let newCart = [...state.listCart]
             action.item.count=action.count
@@ -89,12 +97,23 @@ const CartReducer = (state=initState,action)=>{
                 }
         case 'addToOrder':
             const newListOrder = [...state.listOrder]
-            const newOrder = {idUser:users.id,idOrder:newListOrder.length+1,status:"chờ xác nhận",time:action.day,item:action.listItem}
+            const allListOrder = [...state.listAllOrder]
+            console.log(allListOrder)
+            const newOrder = {idUser:users.id,idOrder:allListOrder.length+1,status:"chờ xác nhận",time:action.day,item:action.listItem}
             Axios.post(urlOrder,newOrder)
             newListOrder.push(newOrder)
             return{
                 ...state,
                 listOrder:newListOrder
+            }
+        case 'conFirmOrder':
+            const newListAllOrder = [...state.listAllOrder]
+            const findOrder = newListAllOrder.find(item=>item.idOrder==action.idOrder)
+            if(findOrder) findOrder.status = 'đã xác nhận'
+            Axios.put(urlOrder+"/"+action.idOrder,findOrder)
+            return{
+                ...state,
+                listAllOrder:newListAllOrder
             }
         default: 
            return {...state}

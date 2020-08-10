@@ -9,6 +9,8 @@ import Cart from '../page/cart/Cart'
 import Admin from '../page/admin/Admin';
 import Product from '../page/admin/Product';
 import User from '../page/admin/User';
+import ListOrder from '../page/admin/ListOrder';
+import DashBoard from '../page/admin/DashBoard';
 const Layout = ()=>{
         return(
             <Router>
@@ -22,6 +24,8 @@ const Layout = ()=>{
                     <Route path="/admin" exact component={() => <Admin/>} />
                     <Route path="/admin-products" exact component={() => <Product/>} />
                     <Route path="/admin-users" exact component={() => <User/>} />
+                    <Route path="/admin-order" exact component={()=><ListOrder/>}/>
+                    <Route path="/dashboard" exact component = {()=><DashBoard/>}/>
 
                 </Switch>
             </div>

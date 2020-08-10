@@ -166,16 +166,20 @@
         "price": "ĐƠN GIÁ",
         "count": "SỐ LƯỢNG",
         "img": "HÌNH ẢNH",
-        "show": "chi tiết"
+        "show": "chi tiết",
+        "confirm": "xác nhận"
     },
     "menuAdmin": {
-        "dashboard": "Bảng điều khiển",
+        "dashboard": "THỐNG KÊ",
         "product": "Sản phẩm",
         "user": "Người dùng",
         "listorder": "Đơn hàng",
         "namestore": "GREEN SHOP",
         "tableproduct": "Bảng Sản Phẩm",
-        "tableUser": "Bảng Người Dùng"
+        "tableUser": "Bảng Người Dùng",
+        "tableOrder": "Bảng đơn hàng",
+        "dashboardorder": "THỐNG KÊ LƯỢT MUA",
+        "time": "Thời gian"
     },
     "role": {
         "add": "Thêm sản phẩm",

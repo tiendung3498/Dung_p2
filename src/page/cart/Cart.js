@@ -6,7 +6,7 @@ import Header from '../../../src/common/Header'
 import Footer from '../../../src/common/Footer'
 import CartBill from './component/CartBill'
 import Profile from './component/Profile'
-import { fetchCartUser, fetchOrder, fetchItemOrder, addToOrder, deleteCart } from '../../redux/action/Cart'
+import { fetchCartUser, fetchOrder, fetchItemOrder, addToOrder, deleteCart,fetchAllOrder } from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
 import {Tab, Tabs} from "react-bootstrap";
 import ColumnOrder from './component/ColumnOrder'
@@ -28,7 +28,10 @@ const Cart = ()=>{
     useEffect(() => {
         dispatch(fetchOrder(users.id))
     }, [])
-
+    
+    useEffect(() => {
+        dispatch(fetchAllOrder())
+    }, [])
     const show = (idOrder)=>{
          dispatch(fetchItemOrder(idOrder))
          setTimeout(() => {

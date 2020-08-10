@@ -28,7 +28,7 @@ const SideBar =()=>{
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/admin-list">
+                    <Link className="nav-link" to="/admin-order">
                         <i className="fas fa-address-book"/>
                         <span>{t('menuAdmin.listorder')}</span>
                     </Link>

@@ -49,6 +49,22 @@ export const fetchOrder = (id) =>{
             }
         }     
 }
+export const fetchAllOrder = () =>{
+    return async dispatch =>{
+            try {
+                Axios.get(urlOrder)
+                .then(
+                    response=>{
+                        if(response.data[0]) dispatch(showListAllOrder(response.data))
+                        else return
+                    })
+ 
+            } catch (error) {
+                alert('Error: '+error.message);
+                
+            }
+        }     
+}
 export const fetchItemOrder = (idOrder) =>{
     return async dispatch =>{
             try {
@@ -86,6 +102,12 @@ export const showListOrder = listOrder => {
         listOrder,     
     }
 }
+export const showListAllOrder = listOrder => {
+    return {
+        type: 'showListAllOrder',
+        listOrder,     
+    }
+}
 export const showListItemOrder = listOrder => {
     return {
         type: 'showListItemOrder',
@@ -116,5 +138,11 @@ export const addToOrder = (listItem,day) => {
         type: 'addToOrder',
         listItem,
         day  
+    }
+}
+export const conFirmOrder = idOrder => {
+    return {
+        type: 'conFirmOrder',
+        idOrder
     }
 }
