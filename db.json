@@ -225,39 +225,59 @@
     },
     {
       "idUser": 2,
-      "itemselected": [],
+      "itemselected": [
+        {
+          "id": 17,
+          "img": "../../../img/img-detail-1.png",
+          "name": "cây bồ đề",
+          "price": "550",
+          "del": "250.000đ",
+          "status": true,
+          "count": 1
+        }
+      ],
       "id": 6
     }
   ],
   "recentlyViewed": [
     {
-      "id": 2,
-      "img": "../../../img/spx2-2.png",
-      "name": "Cây danh dự",
-      "price": 300,
-      "del": "250.000 đ"
-    },
-    {
-      "id": 11,
-      "img": "../../../img/spx2-10.png",
-      "name": "Cây dạ lam",
-      "price": 350,
-      "del": "250.000 đ"
-    },
-    {
-      "id": 20,
-      "img": "../../../img/spx2-3.png",
-      "name": "cây dừa xiêm",
-      "price": "250",
-      "del": "250.000đ",
+      "id": 6,
+      "img": "../../../img/spx2-6.png",
+      "name": "Cây kim ngân",
+      "price": 500,
+      "del": "250.000 đ",
       "status": true
     },
     {
-      "id": 17,
+      "id": 1,
       "img": "../../../img/img-detail-1.png",
-      "name": "cây bồ đề",
-      "price": "550",
-      "del": "250.000đ",
+      "name": "Cây dạ lam",
+      "price": "250",
+      "del": "250.000 đ",
+      "status": true
+    },
+    {
+      "id": 4,
+      "img": "../../../img/spx2-4.png",
+      "name": "Cây cọ ta",
+      "price": 150,
+      "del": "250.000 đ",
+      "status": true
+    },
+    {
+      "id": 11,
+      "img": "../../../img/spx2-11.png",
+      "name": "Cây cọ ta",
+      "price": 250,
+      "del": "250.000 đ",
+      "status": true
+    },
+    {
+      "id": 9,
+      "img": "../../../img/spx2-9.png",
+      "name": "Cây phát lộc",
+      "price": 250,
+      "del": "250.000 đ",
       "status": true,
       "count": 1
     }

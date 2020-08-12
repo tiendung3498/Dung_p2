@@ -7,6 +7,9 @@ import DetailInformation from './component/DetailInformation';
 import { useDispatch,useSelector } from 'react-redux'
 import {fetchCart, addToCart,fetchCartUser} from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
+import { FacebookShareButton, FacebookIcon } from 'react-share'
+import { FacebookProvider, Comments,ShareButton } from 'react-facebook';
+
 
 const Detail = ()=>{
     const { t } = useTranslation('common');
@@ -15,6 +18,7 @@ const Detail = ()=>{
     const dispatch = useDispatch()
     const users = JSON.parse(localStorage.getItem('logon'))
     const listCartUser = useSelector(state=>state.cart.listCartUser)
+    const urlProduct = process.env.REACT_APP_PRODUCTS
 
     useEffect(() => {
         dispatch(fetchCartUser(users.id))
@@ -34,8 +38,14 @@ const Detail = ()=>{
     }
     let item = JSON.parse(localStorage.getItem('item-detail'));
     if(item){
-        return(
+        return( 
             <div>
+                <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" 
+                        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=292558181938829&autoLogAppEvents=1"
+                        nonce="bWA0u496">
+                    </script>
+                <div id="fb-root"></div>
                 <Header/>
                     <div className="detail__title">
                        <div>{t('home.home')}
@@ -98,10 +108,14 @@ const Detail = ()=>{
                                         <i className="fab fa-google-plus-g"></i>
                                         <span>{t(' 0')}</span>
                                     </a>
-                                    <a className="Share" href="#">
-                                        <i className="fas fa-plus-square">{t('Sharet')}</i>
+                                    <a className="Share">
+                                    <FacebookProvider appId="238875337232479">
+                                        <ShareButton href="http://www.facebook.com">
+                                            <i className="fas fa-plus-square">{t('facebook.share')}</i>
+                                        </ShareButton>
+                                    </FacebookProvider>
                                     </a>
-                                </div>
+                                    <div class="fb-comments" data-href={urlProduct+"/"+item.id} data-numposts="5" data-width=""></div>                                </div>
                             </div>
                         </div>
                         <DetailInformation/>   

@@ -189,6 +189,8 @@
     "user": {
         "id": "Mã Người Dùng",
         "name": "Tên Người Dùng"
-
+    },
+    "facebook": {
+        "share": "share"
     }
 }
