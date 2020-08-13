@@ -30,8 +30,7 @@ const SignIn =()=>{
         else{
             let findEmail = Users.find(user=>user.email==emails)
             if(findEmail){
-                let findPass = Users.find(user=>user.password==passwords)
-                if(findPass){
+                if(findEmail.password==passwords){
                     if(findEmail.role == 'user')
                     {
                         window.location.href="/"
@@ -51,7 +50,6 @@ const SignIn =()=>{
      }
     return(
         <div>
-            <Header/>
             <div className="login__title">
                <div>{t('home.home')}<a href="#">{t('header.signin')}</a></div>
            </div>
@@ -83,7 +81,6 @@ const SignIn =()=>{
                    <a className="btnLogin" >{t('header.signin')}</a>
                 </div>
             </div>
-           <Footer/>
         </div>
     );
 }

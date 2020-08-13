@@ -4,14 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch} from 'react-redux'
 import { fetchCartUser } from '../redux/action/Cart'
 const Header = ()=>{
-    const { t } = useTranslation('common');
+    const { t } = useTranslation('common')
+    const dataCartUser = useSelector(state=>state.cart.listCartUser)
+    const users = JSON.parse(localStorage.getItem('logon'))
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        dispatch(fetchCartUser(users.id))
+    }, [dataCartUser.length])
+
     const handleSignOut = ()=>{
         localStorage.removeItem('logon')
-        window.location.href= '/'
+        window.location.href= '/signin'
     }
-    const dataCartUser = useSelector(state=>state.cart.listCartUser)
-
-
     return(
         <header>
         <div className="header__top">

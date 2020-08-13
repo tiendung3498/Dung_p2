@@ -3,6 +3,7 @@ const initState = {
     listProduct : [],
     sort: '1',
     listViewed:[],
+    listViewedUser:[],
     rendirect:1
 }
 const urlViewed =process.env.REACT_APP_VIEWEDS
@@ -28,6 +29,18 @@ const sortProduct = (arr,sort)=>{
     return [...arr]
 
 }
+
+const sortViewed=array=>{
+    let temp1
+    let temp2
+    temp1 = array[0]
+    array[0]=array[3]
+    array[3]=temp1
+    temp2=array[1]
+    array[1]=array[2]
+    array[2] =temp2               
+    return [...array]
+}
 const ProductReducer = (state=initState,action)=>{
     switch (action.type) {
         case 'showListProduct':
@@ -45,22 +58,35 @@ const ProductReducer = (state=initState,action)=>{
                     listViewed: action.listViewed,
                 }
             }
-        case 'addItemViewed':
-            let newViewed = [...state.listViewed]
-            let findItem = newViewed.find(items=>items.id==action.item.id)
-            if(findItem) return
-            else{
-                newViewed.push(action.item)
-                Axios.post(urlViewed,action.item)
-                if(newViewed.length>4){
-                    Axios.delete(urlViewed+"/"+newViewed[0].id)
-                    newViewed.shift()
-                }
-            }
+        case 'showListViewedUser':
             {
                 return {
                     ...state,
-                    listViewed: newViewed,
+                    listViewedUser: sortViewed(action.listViewed),
+                }
+            }
+        case 'addItemViewed':
+            let newViewed = [...state.listViewed] 
+            let findUser = newViewed.find(items=>items.idUser==action.id)
+            if(findUser){
+                let findItem = findUser.item.find(items=>items.id==action.item.id)
+                if(findItem) console.log('0')
+                else{
+                    findUser.item.push(action.item)
+                    Axios.put(urlViewed+"/"+findUser.id,findUser)
+                    if(findUser.item.length>4){
+                        findUser.item.shift()
+                        Axios.put(urlViewed+"/"+findUser.id,findUser)
+                    }
+                }
+            }
+            else{
+                Axios.post(urlViewed,{idUser:action.id,item:[action.item]})
+            }         
+            {
+                return {
+                    ...state,
+                    listViewedUser: findUser.item,
                 }
             }  
         case 'changeSort':

@@ -11,10 +11,16 @@ import Product from '../page/admin/Product';
 import User from '../page/admin/User';
 import ListOrder from '../page/admin/ListOrder';
 import DashBoard from '../page/admin/DashBoard';
+import Error from '../page/error/Error';
+import Loading from 'react-loading-bar'
+import 'react-loading-bar/dist/index.css'
+
+
 const Layout = ()=>{
-        return(
-            <Router>
-            <div className="layout--app">               
+
+    return(
+        <Router>
+            <div className="layout--app">  
                 <Switch>
                     <Route path="/" exact component={() => <Home/>} />
                     <Route path="/detail" exact component={() => <Detail/>} />
@@ -26,10 +32,9 @@ const Layout = ()=>{
                     <Route path="/admin-users" exact component={() => <User/>} />
                     <Route path="/admin-order" exact component={()=><ListOrder/>}/>
                     <Route path="/dashboard" exact component = {()=><DashBoard/>}/>
-
+                    <Route component={() => <Error/>} />
                 </Switch>
             </div>
-
         </Router>
         );
 }

@@ -7,7 +7,7 @@ const NavAdmin = ()=> {
 
     const  logOut=()=>{
         localStorage.removeItem("logon");
-        window.location.href = '/';
+        window.location.href = '/signin';
     }
     return (
         <Navbar>

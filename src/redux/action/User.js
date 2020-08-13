@@ -1,13 +1,12 @@
+import Axios from 'axios'
 const urlUser = process.env.REACT_APP_USERS
 
 export const fetchUser = () =>{
     return async dispatch =>{
-            let string =urlUser;
             try {
-                const request = string;
-                const response = await fetch(request);
-                const responseJson = await response.json();
-                dispatch( showListUser(responseJson) )   
+                Axios.get(urlUser)
+                .then(res=>
+                    dispatch( showListUser(res.data)))
             } catch (error) {
                 alert('Error: '+error.message);  
             }

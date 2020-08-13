@@ -19,7 +19,7 @@ const ListOrder = ()=>{
     
     useEffect(() => {
       dispatch(fetchAllOrder())
-    },)
+    },[])
 
     const show = (idOrder)=>{
         dispatch(fetchItemOrder(idOrder))

@@ -23,7 +23,7 @@ const Statistic = ({ month, startDate })=>{
     const countProDate = () => {
         if (listAllOrder.length > 0) {
            const listOrdersDate = listAllOrder.filter(v => {
-            const dateOrder = moment(v.time).format("DD-YYYY");
+            const dateOrder = moment(v.time).format("MM-YYYY");
             return dateOrder===formatStartDate
           });
     
@@ -45,12 +45,13 @@ const Statistic = ({ month, startDate })=>{
     
       const setToStatistic =list=> {
         for (let v of list) {
-          const date = moment(v.date).format("MM");
+          const date = moment(v.date).format("DD");
           if (labels.includes(date)) {
             dataStatistic.splice(labels.indexOf(date), 0, v.amount);
           }
         }
       }
+      console.log(dataStatistic)
       countProDate();
     
       const data = {

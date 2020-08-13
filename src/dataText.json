@@ -7,8 +7,10 @@
         "introduction": "giới thiệu",
         "product": "sản phẩm",
         "newproduct": "sản phẩm mới",
+        "allproduct": "tất cả sản phẩm ",
         "news": "tin tức",
-        "contact": "liên hệ"
+        "contact": "liên hệ",
+        "trentproduct": "sản phẩm bán chạy"
     },
     "header": {
         "phone": "HỖ TRỢ: (04) 6674 2332 - (04) 3786 8904",

@@ -22,9 +22,11 @@ export const fetchCartUser = (id) =>{
                 Axios.get(urlCart+"?idUser="+id)
                 .then(
                     response=>{
-                        if(response.data[0]) dispatch(showListCartUser(response.data[0].itemselected))
+                        if(response.data[0]) {
+                            dispatch(showListCartUser(response.data[0].itemselected))
+                        }
                         else return
-                    })
+                })
  
             } catch (error) {
                 alert('Error: '+error.message);
@@ -120,10 +122,9 @@ export const deleteItemCart = id => {
         id,     
     }
 }
-export const deleteCart = listCart => {
+export const deleteCart = () => {
     return {
         type: 'deleteCart',
-        listCart,     
     }
 }
 export const addToCart = (item,count) => {

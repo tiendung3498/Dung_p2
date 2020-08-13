@@ -18,10 +18,12 @@ const RowItemOrders = ({data,show,conFirm})=>{
                 </button>
             </td>
             <td>
-                <button className="btn btn-success"
-                    onClick={conFirm}>
-                    {t('order.confirm')}
-                </button>
+                {
+                    data.status=='chờ xác nhận'&&
+                    <button className="btn btn-success"
+                        onClick={conFirm}>
+                        {t('order.confirm')}
+                    </button>}
             </td>
         </tr>
     )

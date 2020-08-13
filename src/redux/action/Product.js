@@ -1,13 +1,12 @@
+import Axios from 'axios'
 const urlProduct = process.env.REACT_APP_PRODUCTS
 const urlViewed = process.env.REACT_APP_VIEWEDS
 export const fetchProduct = (sort) =>{
     return async dispatch =>{
-            let string =urlProduct;
             try {
-                const request = string;
-                const response = await fetch(request);
-                const responseJson = await response.json();
-                dispatch( showListProduct(responseJson,sort) )   
+                Axios.get(urlProduct)
+                .then(res=>
+                    dispatch( showListProduct(res.data,sort) ))   
             }
              catch (error) {
                 alert('Error: '+error.message);               
@@ -16,12 +15,25 @@ export const fetchProduct = (sort) =>{
 }
 export const fetchViewed = () =>{
     return async dispatch =>{
-            let string =urlViewed;
             try {
-                const request = string;
-                const response = await fetch(request);
-                const responseJson = await response.json();
-                dispatch( showListViewed(responseJson) )   
+                Axios.get(urlViewed)
+                .then(res=>{
+                    dispatch( showListViewed(res.data))             
+                })
+            }
+             catch (error) {
+                alert('Error: '+error.message);               
+            }
+    }        
+}
+export const fetchViewedUser = (id) =>{
+    return async dispatch =>{
+            try {
+                Axios.get(urlViewed+"?idUser="+id)
+                .then(res=>{
+                    if(res.data[0]) dispatch(showListViewedUser(res.data[0].item))
+                    else return
+                })
             }
              catch (error) {
                 alert('Error: '+error.message);               
@@ -41,9 +53,16 @@ export const showListViewed = listViewed => {
         listViewed,
     }
 }
-export const addItemViewed = item => {
+export const showListViewedUser = listViewed => {
+    return {
+        type: 'showListViewedUser',
+        listViewed,
+    }
+}
+export const addItemViewed = (id,item) => {
     return {
         type: 'addItemViewed',
+        id,
         item,
     }
 }

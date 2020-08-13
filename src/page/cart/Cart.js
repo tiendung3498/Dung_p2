@@ -6,11 +6,13 @@ import Header from '../../../src/common/Header'
 import Footer from '../../../src/common/Footer'
 import CartBill from './component/CartBill'
 import Profile from './component/Profile'
-import { fetchCartUser, fetchOrder, fetchItemOrder, addToOrder, deleteCart,fetchAllOrder } from '../../redux/action/Cart'
+import { fetchCartUser, fetchOrder, fetchItemOrder, addToOrder, deleteCart,fetchAllOrder,fetchCartUserSuccess } from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
 import {Tab, Tabs} from "react-bootstrap";
 import ColumnOrder from './component/ColumnOrder'
 import ModalOrder from './component/ModalOrder'
+import Loading from 'react-loading-bar'
+import 'react-loading-bar/dist/index.css'
 
 const Cart = ()=>{
     
@@ -18,20 +20,25 @@ const Cart = ()=>{
     const dispatch = useDispatch()
     const listCartUser = useSelector(state=>state.cart.listCartUser)
     const listOrder = useSelector(state=>state.cart.listOrder)
-    const [statusOrder,setStatusOrder] = useState("chờ xác nhận")
     const [modal,setModal] =useState(false)
     const users = JSON.parse(localStorage.getItem('logon'))
+    const [loading,setLoading] = useState(false)
     
+    const loadings = ()=>{
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 500);
+    }
     useEffect(() => {
-        dispatch(fetchCartUser(users.id))
-    }, [listCartUser])
-    useEffect(() => {
-        dispatch(fetchOrder(users.id))
+        loadings()
+        setTimeout(() => {
+            dispatch(fetchCartUser(users.id))
+            dispatch(fetchOrder(users.id))
+            dispatch(fetchAllOrder())
+        }, 700);
     }, [])
     
-    useEffect(() => {
-        dispatch(fetchAllOrder())
-    }, [])
     const show = (idOrder)=>{
          dispatch(fetchItemOrder(idOrder))
          setTimeout(() => {
@@ -47,14 +54,19 @@ const Cart = ()=>{
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0');
         let yyyy = today.getFullYear();
-        today = dd + '/' + mm + '/' + yyyy;
+        today = mm + '/' + dd + '/' + yyyy;
         dispatch(addToOrder(listItem,today))
+        loadings()
         setTimeout(() => {
             dispatch(deleteCart(listCartUser))
         }, 500);
     }
     return(
         <div>
+            <Loading 
+                show = {loading}
+                color='#3fb871'
+            />
             <Header/>
             <div className="cart__title">
             </div>

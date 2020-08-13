@@ -44,7 +44,6 @@ const Signup =()=>{
 
     return(
         <div>
-            <Header/>
                 <div class="register__title">
                    <div>{t('home.home')}<a href="#">{t('header.signup')}</a></div>
                 </div>
@@ -79,7 +78,7 @@ const Signup =()=>{
                         <a onClick={handleSignup}>{t('header.signup')}</a>
                     </div>
                 </div>
-            <Footer/>
+            
         </div>
     );
 }

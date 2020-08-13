@@ -82,7 +82,7 @@ const CartReducer = (state=initState,action)=>{
             }
             
         case 'deleteCart':
-            let newCart3 = action.listCart
+            let newCart3 = [...state.listCartUser]
             newCart3.splice(0)
             let userCart3 = state.listCart.find(user=>user.idUser==users.id);
             Axios.put(urlCart+"/"+userCart3.id,
@@ -98,7 +98,6 @@ const CartReducer = (state=initState,action)=>{
         case 'addToOrder':
             const newListOrder = [...state.listOrder]
             const allListOrder = [...state.listAllOrder]
-            console.log(allListOrder)
             const newOrder = {idUser:users.id,idOrder:allListOrder.length+1,status:"chờ xác nhận",time:action.day,item:action.listItem}
             Axios.post(urlOrder,newOrder)
             newListOrder.push(newOrder)

@@ -10,6 +10,11 @@ header {
     border-bottom: 1px solid $green;
 }
 
+h4 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0.5rem !important;
+}
+
 .header__top {
     background-color: black;
     &--container {
