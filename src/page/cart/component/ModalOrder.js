@@ -15,8 +15,6 @@ const ModalOrder = ({modal,hide})=>{
             setTotalPrice(0);
         }
     }, [listItemOrder]);
-
-
     return(
     <Modal show={modal} onHide={hide}>
         <Modal.Header closeButton>

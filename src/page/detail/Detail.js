@@ -7,7 +7,6 @@ import DetailInformation from './component/DetailInformation';
 import { useDispatch,useSelector } from 'react-redux'
 import {fetchCart, addToCart,fetchCartUser} from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
-import { FacebookShareButton, FacebookIcon } from 'react-share'
 import { FacebookProvider, Comments,ShareButton } from 'react-facebook';
 
 

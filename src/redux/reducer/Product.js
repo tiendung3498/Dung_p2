@@ -1,7 +1,8 @@
 import Axios from 'axios'
+import { putData, postData } from '../../api/Api'
 const initState = {
     listProduct : [],
-    sort: '1',
+    sort: '0',
     listViewed:[],
     listViewedUser:[],
     rendirect:1
@@ -10,10 +11,10 @@ const urlViewed =process.env.REACT_APP_VIEWEDS
 const urlProduct =process.env.REACT_APP_PRODUCTS
 
 const sortProduct = (arr,sort)=>{
-    if(sort == 2){
+    if(sort == 1){
         return arr.sort((a,b)=> a.price -b.price)
     }
-    if(sort==3){
+    if(sort==2){
         return arr.sort((a,b)=>{
             let nameA = a.name.toUpperCase(); 
             let nameB = b.name.toUpperCase();
@@ -30,16 +31,18 @@ const sortProduct = (arr,sort)=>{
 
 }
 
+const fillterCategory = (arr,category)=>{
+    if(category==0) return arr
+    return arr.filter(item=>item.category==category)
+
+}
+
 const sortViewed=array=>{
-    let temp1
-    let temp2
-    temp1 = array[0]
-    array[0]=array[3]
-    array[3]=temp1
-    temp2=array[1]
-    array[1]=array[2]
-    array[2] =temp2               
-    return [...array]
+    let newArray =[...array]
+    for(let i=0;  i<array.length; i++){
+         newArray[i]=array[array.length-i-1]
+    }
+    return newArray
 }
 const ProductReducer = (state=initState,action)=>{
     switch (action.type) {
@@ -47,8 +50,7 @@ const ProductReducer = (state=initState,action)=>{
             {
                 return {
                     ...state,
-                    listProduct: sortProduct(action.listProduct,action.sort),
-                    sort:action.sort
+                    listProduct: sortProduct(fillterCategory(action.listProduct,action.category),action.sort),
                 }
             } 
         case 'showListViewed':
@@ -73,15 +75,18 @@ const ProductReducer = (state=initState,action)=>{
                 if(findItem) console.log('0')
                 else{
                     findUser.item.push(action.item)
-                    Axios.put(urlViewed+"/"+findUser.id,findUser)
                     if(findUser.item.length>4){
                         findUser.item.shift()
-                        Axios.put(urlViewed+"/"+findUser.id,findUser)
                     }
+                    putData(urlViewed+"/"+findUser.id,{
+                        id:findUser.id,
+                        idUser:findUser.idUser,
+                        item:findUser.item
+                    })
                 }
             }
             else{
-                Axios.post(urlViewed,{idUser:action.id,item:[action.item]})
+                postData(urlViewed,{idUser:action.id,item:[action.item]})
             }         
             {
                 return {
@@ -107,7 +112,7 @@ const ProductReducer = (state=initState,action)=>{
             const newListProduct = [...state.listProduct]
             let findProduct = newListProduct.find(item=>item.id == action.id)
             if(findProduct) findProduct = action.item
-            Axios.put(urlProduct+"/"+findProduct.id,action.item)
+            putData(urlProduct+"/"+findProduct.id,action.item)
             {
                 return{
                     ...state,
@@ -118,7 +123,7 @@ const ProductReducer = (state=initState,action)=>{
             const newListProduct1 = [...state.listProduct]
             let index = newListProduct1.findIndex(item=>item.id==action.item.id)
             newListProduct1[index].status = !newListProduct1[index].status
-            Axios.put(urlProduct+"/"+action.item.id,newListProduct1[index])
+            putData(urlProduct+"/"+action.item.id,newListProduct1[index])
             return{
                 ...state,
                 listProduct:newListProduct1
@@ -126,7 +131,7 @@ const ProductReducer = (state=initState,action)=>{
         case 'addProduct':
             const newListProduct2 = [...state.listProduct]
             newListProduct2.push(action.item)
-            Axios.post(urlProduct,action.item)
+            postData(urlProduct,action.item)
             return{
                 ...state,
                 listProduct:newListProduct2

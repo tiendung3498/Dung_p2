@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { render } from '@testing-library/react';
 import Detail from '../page/detail/Detail'
 import Home from '../page/home/Home'
 import Signin from '../page/signin/SingIn'
@@ -12,11 +11,12 @@ import User from '../page/admin/User';
 import ListOrder from '../page/admin/ListOrder';
 import DashBoard from '../page/admin/DashBoard';
 import Error from '../page/error/Error';
-import Loading from 'react-loading-bar'
 import 'react-loading-bar/dist/index.css'
+import Header from '../common/Header'
+import Footer from '../common/Footer'
 
 
-const Layout = ()=>{
+const Layout = (props)=>{
 
     return(
         <Router>

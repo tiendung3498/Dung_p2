@@ -49,7 +49,7 @@ const Cart = ()=>{
     const hide = ()=>{
         setModal(false)
    }
-    const pay = (listItem)=>{
+    const pay = async listItem=>{
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -57,9 +57,7 @@ const Cart = ()=>{
         today = mm + '/' + dd + '/' + yyyy;
         dispatch(addToOrder(listItem,today))
         loadings()
-        setTimeout(() => {
-            dispatch(deleteCart(listCartUser))
-        }, 500);
+        dispatch(deleteCart(listCartUser))
     }
     return(
         <div>

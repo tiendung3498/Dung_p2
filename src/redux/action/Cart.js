@@ -19,11 +19,11 @@ export const fetchCart = () =>{
 export const fetchCartUser = (id) =>{
     return async dispatch =>{
             try {
-                Axios.get(urlCart+"?idUser="+id)
+                Axios.get(urlCart+"/idUser="+id)
                 .then(
                     response=>{
-                        if(response.data[0]) {
-                            dispatch(showListCartUser(response.data[0].itemselected))
+                        if(response.data) {
+                            dispatch(showListCartUser(response.data.itemselected))
                         }
                         else return
                 })
@@ -38,11 +38,12 @@ export const fetchCartUser = (id) =>{
 export const fetchOrder = (id) =>{
     return async dispatch =>{
             try {
-                Axios.get(urlOrder+"?idUser="+id)
+                Axios.get(urlOrder+"/idUser="+id)
                 .then(
                     response=>{
-                        if(response.data[0]) dispatch(showListOrder(response.data))
-                        else return
+                        console.log(response.data)
+                        dispatch(showListOrder(response.data))
+                        // else return
                     })
  
             } catch (error) {
@@ -57,8 +58,7 @@ export const fetchAllOrder = () =>{
                 Axios.get(urlOrder)
                 .then(
                     response=>{
-                        if(response.data[0]) dispatch(showListAllOrder(response.data))
-                        else return
+                        dispatch(showListAllOrder(response.data))
                     })
  
             } catch (error) {
@@ -70,11 +70,10 @@ export const fetchAllOrder = () =>{
 export const fetchItemOrder = (idOrder) =>{
     return async dispatch =>{
             try {
-                Axios.get(urlOrder+"?idOrder="+idOrder)
+                Axios.get(urlOrder+"/idOrder="+idOrder)
                 .then(
                     response=>{
-                        if(response.data[0]) dispatch(showListItemOrder(response.data[0].item))
-                        else return
+                       dispatch(showListItemOrder(response.data.item))
                     })
  
             } catch (error) {

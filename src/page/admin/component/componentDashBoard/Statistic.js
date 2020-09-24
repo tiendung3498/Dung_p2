@@ -51,7 +51,6 @@ const Statistic = ({ month, startDate })=>{
           }
         }
       }
-      console.log(dataStatistic)
       countProDate();
     
       const data = {

@@ -11,10 +11,11 @@ import SaleProduct from './component/SaleProduct'
 import News from './component/News'
 import "./home.css";
 import { useTranslation } from 'react-i18next';
-import SortProduct from './component/SortProduct'
+import DropDown from './component/DropDown'
 import ProductTitle from './component/ProductTitle'
 import Loading from 'react-loading-bar'
 import 'react-loading-bar/dist/index.css'
+import ScrollTop from './component/ScrollTop'
 
 const Home = ()=>{
     const dispatch = useDispatch();
@@ -25,6 +26,11 @@ const Home = ()=>{
     const listViewedUser = useSelector(state=>state.product.listViewedUser)
     const trentProduct = useSelector(state=>state.cart.listAllOrder)
     const [loading,setLoading] = useState(false)
+    const [category,setCategory] =useState('0')
+    const dataSort = ['chọn','giá','bảng chữ cái']
+    const dataCategory = ['tất cả','1','2']
+    const [intervalId,setIntervalId] = useState(1)
+    const [onscroll,setOnscroll] = useState(false)
     
     const loadings = ()=>{
         setLoading(true)
@@ -32,10 +38,21 @@ const Home = ()=>{
             setLoading(false)
         }, 500);
     }
+    const checkPageYOffset = ()=>{
+        if(window.pageYOffset >= 500) setOnscroll(true)
+        else setOnscroll(false)
+    }
+    const onScroll=()=>{
+        document.addEventListener("scroll",()=> {
+            checkPageYOffset()
+        });
+    }
     useEffect(() => {
        loadings()
-       setTimeout(() => {
-           dispatch(fetchProduct(sort))
+       onScroll()
+       setTimeout(async () => {
+        //    await fetchProduct().then(data=>console.log(data))
+           dispatch(fetchProduct(category,sort))
            dispatch(fetchViewed())
            dispatch(fetchCart())
            dispatch(fetchAllOrder())
@@ -43,17 +60,17 @@ const Home = ()=>{
        }, 700);
     }, [])
     const fetchTrentProduct = ()=>{
-         let array = []
-         for(let items of trentProduct){
+        let array = []
+        for(let items of trentProduct){
             for (let itemss of items.item) {
                 array.push(itemss)
             }
         }
         for (let i = 0; i < array.length-1; i++) {
             for (let j =i+1; j < array.length; j++){
-                if(array[i].id===array[j].id){
-                    array[i].count=array[i].count+array[j].count         
-                    array.splice(j,1)  
+                if(array[i].id === array[j].id){
+                    array[i].count+=array[j].count
+                    array.splice(j,1)                     
                 }
             }
         }
@@ -85,17 +102,40 @@ const Home = ()=>{
         loadings()
     }
 
-    const handleChange = event=>{
+    const handleSort = event=>{
         const value = event.target.value;
         dispatch(changeSort(value));
-        if(value==1) return;
+        if(value==0) return;
         else {
             loadings()
             setTimeout(() => {
-                dispatch(fetchProduct(value))
+                dispatch(fetchProduct(category,value))
             }, 500);
         }   
     }
+    
+    const handleCategory =  event=>{
+        const value = event.target.value
+        setCategory(value)
+        loadings()
+        setTimeout(()=>{
+            dispatch(fetchProduct(value,sort))
+        },500)
+    
+    }
+const  scrollStep = ()=> {
+        if (window.pageYOffset === 0) {
+            clearInterval(intervalId);
+        }
+        window.scroll(0, 0);
+      }
+
+
+
+const scrollToTop=()=> {
+        let intervalId = setInterval(scrollStep(),500);
+        setIntervalId(intervalId);
+      }
 
     if(!users){
         window.location.href = "/signin"
@@ -129,7 +169,10 @@ const Home = ()=>{
                 </section>
                 <section className="newproduct">
                     <ProductTitle title = {t('menu.allproduct')}/>
-                    <SortProduct sort = {sort} handleChange ={handleChange}/>
+                    <div className='dropdown'>
+                        <DropDown data = {dataSort} title = 'Sắp xếp theo' values = {sort} handleChange ={handleSort}/>
+                        <DropDown data = {dataCategory} title = 'Thể loại' values = {category} handleChange ={handleCategory}/>
+                    </div>
                     <div className="newproduct__grid">
                         {listProduct.map(item=> item.status && 
                                                 <Productitem data = {item}
@@ -148,6 +191,7 @@ const Home = ()=>{
                     </div>
                 </section>
                <News/>
+               {onscroll===true && <ScrollTop scrollToTop={()=>scrollToTop()}/>}
                <Footer/>
             </div>
         );     

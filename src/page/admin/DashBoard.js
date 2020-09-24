@@ -5,12 +5,16 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from "react-i18next";
 import LayoutAdmin from "./component/LayoutAdmin";
+import BillboardChart from "react-billboardjs";
+
+
 
 const DashBoard = ()=>{
 
     const [ month, setMonth ] = useState(String);
     const [ startDate, setStartDate ] = useState(new Date());
     const { t } = useTranslation('common');
+    
   
     const handleChangeMonth = (date) => {
       const month = moment(date).utc().format("YYYY-MM-DD"); 
@@ -20,6 +24,7 @@ const DashBoard = ()=>{
     return(
         <LayoutAdmin>
         <React.Fragment>
+          
         <section className="main-cart m-t-3">
           <div className="cart container">
             <div className="main-title-tl">

@@ -547,6 +547,39 @@
     }
 }
 
+.dropdown {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.scroll {
+    background-color: $green;
+    width: 60px;
+    height: 70px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    border-color: $green;
+    opacity: 0.7;
+    transition: all .35s ease-in-out;
+    &:active {
+        outline: none;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.arrow-up {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -5px;
+}
+
 @media(min-width: 1201px) and (max-width:1350px) {
     .saleproduct__grid--left {
         &--item {

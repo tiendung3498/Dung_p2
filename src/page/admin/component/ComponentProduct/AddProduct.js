@@ -22,8 +22,9 @@ const AddProduct = ()=>{
         const price = prices.current.value
         const img = image
         const del = 250+".000đ"
-        const status = true
-        const newproduct ={id,img,name,price,del,status}
+        const status = true,
+        category="1"
+        const newproduct ={id,img,name,price,del,status,category}
         dispatch(addProduct(newproduct))
         dispatch(changeRendirectProduct(1))
     }

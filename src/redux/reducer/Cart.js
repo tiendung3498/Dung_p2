@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import { postData,putData } from '../../api/Api'
 const initState = {
     listCart : [],
     listCartUser : [],
@@ -56,10 +57,14 @@ const CartReducer = (state=initState,action)=>{
             if(userCart){
                 let findItem = userCart.itemselected.find(items=>items.id==action.item.id);
                 findItem? findItem.count+=action.count : userCart.itemselected.push(action.item);
-                Axios.put(urlCart+"/"+userCart.id,userCart)
+                putData(urlCart+"/"+userCart.id,{
+                    id:userCart.id,
+                    itemselected:userCart.itemselected,
+                    idUser:userCart.idUser
+                })
             }
             else{
-                Axios.post(urlCart,{idUser:users.id,itemselected:[action.item]})
+                postData(urlCart,{idUser:users.id,itemselected:[action.item]})
             }
             return {
                 ...state,
@@ -71,7 +76,7 @@ const CartReducer = (state=initState,action)=>{
             let index = newCart2.findIndex(item=>item.id==action.id)
             newCart2.splice(index,1)
             let userCart2 = state.listCart.find(user=>user.idUser==users.id);
-            Axios.put(urlCart+"/"+userCart2.id,{
+            putData(urlCart+"/"+userCart2.id,{
               idUser:users.id,
               itemselected:newCart2,
               id:userCart2.id
@@ -85,7 +90,7 @@ const CartReducer = (state=initState,action)=>{
             let newCart3 = [...state.listCartUser]
             newCart3.splice(0)
             let userCart3 = state.listCart.find(user=>user.idUser==users.id);
-            Axios.put(urlCart+"/"+userCart3.id,
+            putData(urlCart+"/"+userCart3.id,
                 {
                     idUser:users.id,
                     itemselected:newCart3,
@@ -98,8 +103,8 @@ const CartReducer = (state=initState,action)=>{
         case 'addToOrder':
             const newListOrder = [...state.listOrder]
             const allListOrder = [...state.listAllOrder]
-            const newOrder = {idUser:users.id,idOrder:allListOrder.length+1,status:"chờ xác nhận",time:action.day,item:action.listItem}
-            Axios.post(urlOrder,newOrder)
+            const newOrder = {id:allListOrder.length+1,idUser:users.id,idOrder:allListOrder.length+1,status:"chờ xác nhận",time:action.day,item:action.listItem}
+            postData(urlOrder,newOrder)
             newListOrder.push(newOrder)
             return{
                 ...state,
@@ -109,7 +114,7 @@ const CartReducer = (state=initState,action)=>{
             const newListAllOrder = [...state.listAllOrder]
             const findOrder = newListAllOrder.find(item=>item.idOrder==action.idOrder)
             if(findOrder) findOrder.status = 'đã xác nhận'
-            Axios.put(urlOrder+"/"+action.idOrder,findOrder)
+            putData(urlOrder+"/"+action.idOrder,findOrder)
             return{
                 ...state,
                 listAllOrder:newListAllOrder

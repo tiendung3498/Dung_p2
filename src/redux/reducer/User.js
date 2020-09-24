@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import { putData,postData } from '../../api/Api'
 const initState = {
     listUser : [],
     rendirect:1
@@ -18,7 +19,7 @@ const UserReducer = (state=initState,action)=>{
                 const newListUser = [...state.listUser]
                 let findUser = newListUser.find(user=>user.id == action.id)
                 if(findUser) findUser = action.newUser
-                Axios.put(urlUser+"/"+action.id,action.newUser)
+                putData(urlUser+"/"+action.id,action.newUser)
                 localStorage.setItem('logon',JSON.stringify(action.newUser))
                 return{
                     ...state,
@@ -29,7 +30,7 @@ const UserReducer = (state=initState,action)=>{
                 const newListUser1 = [...state.listUser]
                 let index = newListUser1.findIndex(item=>item.id==action.item.id)
                 newListUser1[index].status = !newListUser1[index].status
-                Axios.put(urlUser+"/"+action.item.id,newListUser1[index])
+                putData(urlUser+"/"+action.item.id,newListUser1[index])
                 return{
                     ...state,
                     listUser:newListUser1
@@ -46,7 +47,7 @@ const UserReducer = (state=initState,action)=>{
                     const newListUser1 = [...state.listUser]
                     let findUser = newListUser1.find(user=>user.id == action.id)
                     if(findUser) findUser = action.newUser
-                    Axios.put(urlUser+"/"+action.id,action.newUser)
+                    putData(urlUser+"/"+action.id,action.newUser)
                     return{
                         ...state,
                         listUser : newListUser1
@@ -55,7 +56,7 @@ const UserReducer = (state=initState,action)=>{
          case 'addUser':
             const newListUser2 = [...state.listUser]
             newListUser2.push(action.item)
-            Axios.post(urlUser,action.item)
+            postData(urlUser,action.item)
             return{
                 ...state,
                 listUser:newListUser2

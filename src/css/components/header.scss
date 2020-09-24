@@ -55,7 +55,7 @@ h4 {
                 color: white;
             }
             i {
-                margin-top: 8px;
+                margin-top: 10px;
             }
             a {
                 text-decoration: none;
@@ -85,6 +85,7 @@ h4 {
             float: right;
             margin-top: 20px;
             &--hotline {
+                text-align: left;
                 margin-left: 1rem;
             }
             &--search {
@@ -119,6 +120,9 @@ h4 {
             &--cart {
                 float: right;
                 margin-top: 1.8rem;
+                a {
+                    color: $green;
+                }
                 i::before {
                     padding-right: 0.5rem;
                     font-size: 1.4rem;
@@ -225,15 +229,21 @@ h4 {
     #nav-check {
         display: none;
         &:checked~.header-nav-hide__nav-links {
-            height: 305px;
+            height: 330px;
         }
     }
 }
 
 @media (max-width:1200px) {
+    .header__content--search--hotline {
+        text-align: center;
+    }
     .header__background {
         .header__content--logo {
             background: url('../../img/logo-footer.png') no-repeat center;
+        }
+        & .header__content--search--hotline {
+            text-align: center;
         }
     }
     .header-navbar__menu {
