@@ -6,7 +6,7 @@ import FooterAdmin from "./FooterAdmin";
 const LayoutAdmin = (props)=>{
     return(
         <div className="admin--page">
-        <NavAdmin/>
+           <NavAdmin/>
 
         <div className="wrap--admin">
             <SideBar/>
@@ -19,7 +19,7 @@ const LayoutAdmin = (props)=>{
                 <FooterAdmin/>
             </div>
         </div>
-    </div>
+        </div>
     )
 }
 export default LayoutAdmin

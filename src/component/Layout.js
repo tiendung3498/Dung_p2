@@ -12,8 +12,7 @@ import ListOrder from '../page/admin/ListOrder';
 import DashBoard from '../page/admin/DashBoard';
 import Error from '../page/error/Error';
 import 'react-loading-bar/dist/index.css'
-import Header from '../common/Header'
-import Footer from '../common/Footer'
+
 
 
 const Layout = (props)=>{

@@ -1,9 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import LayoutAdmin from './component/LayoutAdmin'
 import ColumnOrder from '../cart/component/ColumnOrder'
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { fetchAllOrder,fetchItemOrder,conFirmOrder } from '../../redux/action/Cart';
 import ModalOrder from '../cart/component/ModalOrder';
 import RowItemOrders from './component/componenOrder/RowItemOrders';
@@ -26,8 +25,7 @@ const ListOrder = ()=>{
         setTimeout(() => {
            setModal(true)
         }, 500);
-
-   }
+    }
 
     const conFirms =(status,idOrder)=>{
         if(status=="đã xác nhận") return

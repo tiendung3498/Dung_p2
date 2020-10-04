@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import connect from "react-redux/es/connect/connect";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 

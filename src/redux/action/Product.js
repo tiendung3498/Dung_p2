@@ -1,12 +1,12 @@
 import Axios from 'axios'
 const urlProduct = process.env.REACT_APP_PRODUCTS
 const urlViewed = process.env.REACT_APP_VIEWEDS
-export const fetchProduct = (category,sort) =>{
+export const fetchProduct = (category,sort,search) =>{
     return  dispatch =>{
             try {
                 Axios.get(urlProduct)
                 .then(res=>
-                    dispatch( showListProduct(res.data,category,sort) ))   
+                    dispatch( showListProduct(res.data,category,sort,search) ))   
             }
              catch (error) {
                 alert('Error: '+error.message);               
@@ -40,12 +40,13 @@ export const fetchViewedUser = (id) =>{
             }
     }        
 }
-export const showListProduct = (listProduct,category,sort) => {
+export const showListProduct = (listProduct,category,sort,search) => {
     return {
         type: 'showListProduct',
         listProduct,
         sort,
-        category
+        category,
+        search
     }
 }
 export const showListViewed = listViewed => {

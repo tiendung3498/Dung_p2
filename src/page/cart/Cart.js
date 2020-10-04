@@ -6,7 +6,7 @@ import Header from '../../../src/common/Header'
 import Footer from '../../../src/common/Footer'
 import CartBill from './component/CartBill'
 import Profile from './component/Profile'
-import { fetchCartUser, fetchOrder, fetchItemOrder, addToOrder, deleteCart,fetchAllOrder,fetchCartUserSuccess } from '../../redux/action/Cart'
+import { fetchCartUser, fetchOrder, fetchItemOrder, addToOrder, deleteCart,fetchAllOrder } from '../../redux/action/Cart'
 import { useTranslation } from 'react-i18next';
 import {Tab, Tabs} from "react-bootstrap";
 import ColumnOrder from './component/ColumnOrder'
@@ -16,7 +16,7 @@ import 'react-loading-bar/dist/index.css'
 
 const Cart = ()=>{
     
-    const { t } = useTranslation('common');
+    const { t } = useTranslation('common')
     const dispatch = useDispatch()
     const listCartUser = useSelector(state=>state.cart.listCartUser)
     const listOrder = useSelector(state=>state.cart.listOrder)
@@ -49,7 +49,7 @@ const Cart = ()=>{
     const hide = ()=>{
         setModal(false)
    }
-    const pay = async listItem=>{
+    const pay =  listItem=>{
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0');

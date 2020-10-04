@@ -6,6 +6,7 @@ const Admin = ()=>{
     if(admin.role !== 'admin') window.location.href='/'
     else{
         return(
+            
             <LayoutAdmin/>
         )
     }

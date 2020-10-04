@@ -18,6 +18,7 @@ const Header = ()=>{
         window.location.href= '/signin'
     }
     return(
+
         <header>
         <div className="header__top">
             <div className="header__top--container">

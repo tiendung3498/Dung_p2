@@ -5,7 +5,6 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from "react-i18next";
 import LayoutAdmin from "./component/LayoutAdmin";
-import BillboardChart from "react-billboardjs";
 
 
 
@@ -20,7 +19,7 @@ const DashBoard = ()=>{
       const month = moment(date).utc().format("YYYY-MM-DD"); 
       setMonth(month);
       setStartDate(date);
-    };
+    }
     return(
         <LayoutAdmin>
         <React.Fragment>

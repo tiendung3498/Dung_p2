@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Axios from 'axios'
 import { changeStatusUser } from '../../../../redux/action/User'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'

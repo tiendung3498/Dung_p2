@@ -36,6 +36,10 @@ const fillterCategory = (arr,category)=>{
     return arr.filter(item=>item.category==category)
 
 }
+const filterName = (arr,name)=>{
+    if(name=="") return arr
+    else return arr.filter(item=>item.name.toUpperCase().includes(name.toUpperCase()))
+}
 
 const sortViewed=array=>{
     let newArray =[...array]
@@ -50,7 +54,7 @@ const ProductReducer = (state=initState,action)=>{
             {
                 return {
                     ...state,
-                    listProduct: sortProduct(fillterCategory(action.listProduct,action.category),action.sort),
+                    listProduct: sortProduct(filterName(fillterCategory(action.listProduct,action.category),action.search),action.sort),
                 }
             } 
         case 'showListViewed':

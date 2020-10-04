@@ -16,6 +16,9 @@ import ProductTitle from './component/ProductTitle'
 import Loading from 'react-loading-bar'
 import 'react-loading-bar/dist/index.css'
 import ScrollTop from './component/ScrollTop'
+import Pagination from "react-js-pagination";
+import { useRef } from 'react'
+import Search from './component/search'
 
 const Home = ()=>{
     const dispatch = useDispatch();
@@ -31,6 +34,9 @@ const Home = ()=>{
     const dataCategory = ['tất cả','1','2']
     const [intervalId,setIntervalId] = useState(1)
     const [onscroll,setOnscroll] = useState(false)
+    const [page,setPage] = useState(1)
+    const [searchValue,setSearchValue] = useState("")
+    const refSearch = useRef(null)
     
     const loadings = ()=>{
         setLoading(true)
@@ -52,7 +58,7 @@ const Home = ()=>{
        onScroll()
        setTimeout(async () => {
         //    await fetchProduct().then(data=>console.log(data))
-           dispatch(fetchProduct(category,sort))
+           dispatch(fetchProduct(category,sort,searchValue))
            dispatch(fetchViewed())
            dispatch(fetchCart())
            dispatch(fetchAllOrder())
@@ -109,7 +115,7 @@ const Home = ()=>{
         else {
             loadings()
             setTimeout(() => {
-                dispatch(fetchProduct(category,value))
+                dispatch(fetchProduct(category,value,searchValue))
             }, 500);
         }   
     }
@@ -119,20 +125,34 @@ const Home = ()=>{
         setCategory(value)
         loadings()
         setTimeout(()=>{
-            dispatch(fetchProduct(value,sort))
+            dispatch(fetchProduct(value,sort,searchValue))
         },500)
     
     }
-const  scrollStep = ()=> {
+    const  scrollStep = ()=> {
         if (window.pageYOffset === 0) {
             clearInterval(intervalId);
         }
         window.scroll(0, 0);
-      }
+    }
 
 
+    const handlePage=(pageNumber)=>{
+         setPage(pageNumber)
+    }
+    
+    const searchProduct =(event)=>{
+        event.preventDefault()
+        setSearchValue(refSearch.current.value)
+        dispatch(fetchProduct(category,sort,refSearch.current.value))
+    }
 
-const scrollToTop=()=> {
+    const filerPage = (array,itemCount)=>{
+        const pageProduct = [...array]
+       return pageProduct.slice((page-1)*itemCount,page*itemCount)
+
+    }
+    const scrollToTop=()=> {
         let intervalId = setInterval(scrollStep(),500);
         setIntervalId(intervalId);
       }
@@ -170,16 +190,27 @@ const scrollToTop=()=> {
                 <section className="newproduct">
                     <ProductTitle title = {t('menu.allproduct')}/>
                     <div className='dropdown'>
+                        <Search refs = {refSearch} values ={searchValue} searchs = {(e)=>searchProduct(e)} />
                         <DropDown data = {dataSort} title = 'Sắp xếp theo' values = {sort} handleChange ={handleSort}/>
                         <DropDown data = {dataCategory} title = 'Thể loại' values = {category} handleChange ={handleCategory}/>
                     </div>
+                    {listProduct.length<=0 && <h2>Không có sản phẩm nào</h2>}
                     <div className="newproduct__grid">
-                        {listProduct.map(item=> item.status && 
+                        {filerPage(listProduct,8).map(item=> item.status && 
                                                 <Productitem data = {item}
                                                     showDetail ={()=>showDetail(item)}
                                                     addToCart = {()=>addItem(item)}
                                                       />)}
                     </div>
+                    {listProduct.length>0 &&<div className = 'paginations'>
+                        <Pagination
+                        activePage={page}
+                        itemsCountPerPage={8}
+                        totalItemsCount={listProduct.length}
+                        pageRangeDisplayed={3}
+                        onChange={handlePage}
+                        />
+                    </div>}
                 </section>
                 <section className="newproduct">
                     <ProductTitle title ={t('product.recentlyproduct')}/>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Axios from 'axios'
 import { changeStatusProduct } from '../../../../redux/action/Product'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'

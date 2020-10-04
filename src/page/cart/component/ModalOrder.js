@@ -16,7 +16,7 @@ const ModalOrder = ({modal,hide})=>{
         }
     }, [listItemOrder]);
     return(
-    <Modal show={modal} onHide={hide}>
+    <Modal show = {modal} onHide = {hide}>
         <Modal.Header closeButton>
             <Modal.Title>{t('order.detail')}</Modal.Title>
         </Modal.Header>

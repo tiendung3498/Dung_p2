@@ -7,7 +7,6 @@ import AddProduct from './component/ComponentProduct/AddProduct'
 
 const Product = ()=>{
     const rendirect = useSelector(state=>state.product.rendirect)
-    console.log(rendirect)
     return(
          <LayoutAdmin>
                {rendirect==1 && <TableProduct/>}

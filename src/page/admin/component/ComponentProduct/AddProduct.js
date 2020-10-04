@@ -1,6 +1,5 @@
-import React, { useRef } from 'react'
+import React, { useRef,useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useState } from 'react'
 import { changeRendirectProduct, addProduct } from '../../../../redux/action/Product'
 import { useTranslation } from 'react-i18next';
 

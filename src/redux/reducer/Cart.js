@@ -1,4 +1,3 @@
-import Axios from 'axios'
 import { postData,putData } from '../../api/Api'
 const initState = {
     listCart : [],
